@@ -1,0 +1,118 @@
+@font-face {
+    font-family: "Bangers";
+    src: url("../fonts/Bangers/Bangers-Regular.ttf") format('truetype');
+}
+@font-face {
+    font-family: "Lobster";
+    src: url("../fonts/Lobster/Lobster-Regular.ttf") format('truetype');
+}
+@font-face {
+    font-family: "Righteous";
+    src: url("../fonts/Righteous/Righteous-Regular.ttf") format('truetype');
+}
+@font-face {
+    font-family: "Bree_Serif";
+    src: url("../fonts/Bree_Serif/Bree_Serif-Regular.ttf") format('truetype');
+}
+@font-face {
+    font-family: "Alata";
+    src: url("../fonts/Alata/Alata-Regular.ttf") format('truetype');
+}
+
+
+.bangers{
+	font-family: Bangers !important;
+}
+.lobster{
+	font-family: Lobster !important;
+}
+.righteous{
+	font-family: Righteous !important;
+}
+.bree_serif{
+	font-family: Bree_Serif !important;
+}
+.alata{
+	font-family: Alata !important;
+}
+
+
+html,body, #app, main{
+	height: 100%;
+	letter-spacing: 0.1em;
+}
+.form-control{ 
+	border-radius: 50px;
+}
+.input-group .form-control{ 
+	border-top-right-radius: 50px !important;
+	border-bottom-right-radius: 50px !important;
+	padding-left: 25px !important;
+	padding-right: 25px !important;
+
+}
+
+
+.input-group-prepend{
+	border: 1px solid #ced4da;
+    background: #eee;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+.input-group-text{
+	background: transparent;
+    border: 0px !important;
+}
+
+.btn{
+	border-radius: 50px;
+}
+
+.btn-gray{
+	color: #fff;
+    background-color: #C4C4C4;
+    border-color: #C4C4C4;
+}
+
+.btn-gray:hover{
+	color: #fff;
+    background-color: #2176bd;
+    border-color: #1f6fb2;
+}
+
+.jumbotron{
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    background-attachment: fixed !important;
+    background-position: 50% 80% !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+a:hover *, a:hover{
+    text-decoration: none !important;
+}
+.jumbotron h1{
+    color: #fff;
+    text-shadow: 0px 0px 10px black;
+}
+.jumbotron p{
+    color: #fff;
+    text-shadow: 0px 0px 10px black;
+}
+
+.jumbotron .container{
+    z-index: 2;
+    position: relative;
+}
+
+.background-jumbo{
+    position: absolute;
+    position: absolute;
+    z-index: 1;
+    top: -100%;
+    width: 100%;
+    opacity: 0.7;
+    left: 0;
+}
