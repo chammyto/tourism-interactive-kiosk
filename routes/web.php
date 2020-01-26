@@ -15,9 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/categories', function () {
-    return view('get_started');
-});
+Route::get('/categories', 'CategoryController@categories');
+
 Route::get('/categories/places', function () {
     return view('pages/whereto');
 });
@@ -28,3 +27,5 @@ Route::get('/categories/places/chocolate-hills', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('category', 'CategoryController');
