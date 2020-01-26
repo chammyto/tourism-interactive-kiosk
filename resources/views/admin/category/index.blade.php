@@ -5,8 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Categories') }}
-					<a href="{{ url('category/create') }}" type="button" class="btn btn-primary pull-right">Add +</a>
+                <div class="card-header d-flex align-items-center">
+                	<b>Categories</b>
+					<a href="{{ url('category/create') }}" type="button" class="btn btn-primary ml-auto">Add +</a>
 				</div>
 
                 <div class="card-body">
@@ -25,7 +26,10 @@
 								<th><img src="{{ Storage::url($category->image)}}" width="80" height="80" /></th>
 								<td>{{ $category->name }}</td>
 								<td>{{ $category->description }}</td>
-								<td>-</td>
+								<td>
+									<a href="{{ url('category/'.$category->id.'/edit') }}" type="button" class="btn btn-info ml-auto text-white">Edit</a>
+									<a href="{{ url('category/'.$category->id.'') }}" type="button" class="btn btn-danger ml-auto text-white">Delete</a>
+								</td>
 							</tr>
 							@endforeach
 							

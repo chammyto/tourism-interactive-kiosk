@@ -72,7 +72,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.category.edit', ['category'=>$category]);
     }
 
     /**
@@ -84,7 +84,20 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $validation = request()->validate([
+            // 'image' => 'required',
+            'name' => 'required',
+            'description' => 'required',
+            // 'rate' => 'required|regex:/^\d+(\.\d{1,2})?$/',
+        ]);
+        if(request('image')){
+            $category->image= request('image')->store('public/category');
+        }
+        $category->name = request('name');
+        $category->description = request('description');
+        $category->save();
+
+        return redirect('category')->withSuccess('success');
     }
 
     /**
