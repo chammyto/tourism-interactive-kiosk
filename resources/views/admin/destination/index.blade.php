@@ -8,8 +8,8 @@
 			<div class="card shadow">
 				<div class="card-header border-0">
 					<h3 class="mb-0 d-flex justify-content-center align-items-center">
-						Categories 
-						<a href="{{ url('category/create') }}" type="button" class="btn btn-primary ml-auto">Add +</a>
+						Destinations
+						<a href="{{ url('destination/create') }}" type="button" class="btn btn-primary ml-auto">Add +</a>
 					</h3>
 				</div>
 				
@@ -35,15 +35,17 @@
 						<th scope="col">Image</th>
 						<th scope="col">Name</th>
 						<th scope="col">Description</th>
+						<th scope="col">Category</th>
 						<th scope="col">Actions</th>
 					</tr>
 					</thead>
 					<tbody> 
-						@foreach($categories as $category)
+						@foreach($destinations as $category)
 						<tr>
 							<th><img src="{{ Storage::url($category->image)}}" width="80" height="80" /></th>
 							<td>{{ $category->name }}</td>
 							<td>{{ $category->description }}</td>
+							<td>{{ $category->category }}</td>
 							<td>
 								<a href="{{ url('category/'.$category->id.'/edit') }}" type="button" class="btn btn-info ml-auto text-white">Edit</a>
 								<a href="#" class="btn btn-danger" id="removeButton" type="button" class="btn btn-danger ml-auto text-white">Delete</a>

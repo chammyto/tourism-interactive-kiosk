@@ -11,26 +11,25 @@
 |
 */
 
-	Route::get('/', function () {
-	    return view('welcome');
-	});
+Route::get('/', 'HomeController@index')->name('home');
+
 Route::get('/categories', 'CategoryController@categories');
 
-Route::get('/categories/places', function () {
-    return view('pages/whereto');
-});
+Route::get('categories/places/{id}', 'DestinationController@places');
+
 Route::get('/categories/places/chocolate-hills', function () {
     return view('pages/place');
 });
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::middleware('auth')->group(function () {
-	Route::get('/home', function () {
+	Route::get('/admin', function () {
 	    return view('admin.home');
 	});
 	Route::resource('category', 'CategoryController');
+	Route::resource('destination', 'DestinationController');
+
 });

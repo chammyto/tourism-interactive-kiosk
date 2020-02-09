@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>
-    ABATAN FIREFLY TOUR MONITORING
+    TOURIST KIOSK
   </title>
   <!-- Favicon -->
   <link href="{{ asset('assets/img/brand/favicon.png') }}" rel="icon" type="image/png">
@@ -27,7 +27,8 @@
       </button>
       <!-- Brand -->
       <a class="navbar-brand pt-0" href="index.html">
-        <img src="{{ asset('assets/img/brand/blue.png') }}" class="navbar-brand-img" alt="...">
+        <!-- <img src="{{ asset('assets/img/brand/blue.png') }}" class="navbar-brand-img" alt="..."> -->
+        <h3>Tourist KIOSK</h3>
       </a>
       <!-- User -->
       <ul class="nav align-items-center d-md-none">

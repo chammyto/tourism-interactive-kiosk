@@ -1,14 +1,18 @@
-@extends('layouts.app')
+
+@extends('admin.template.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">Edit category
+<div class="container-fluid mt--7 mb--7">
+      <!-- Table -->
+      <div class="row">
+        <div class="col">
+			<div class="card shadow">
+				<div class="card-header border-0">
+					<h3 class="mb-0 d-flex">
+						Categories 
+					</h3>
 				</div>
-
-                <div class="card-body">
+				<div class="card-body col-md-6">
 					<form action="{{ url('category/'.$category->id)}}" method="POST" enctype="multipart/form-data">
 						{{ csrf_field() }}
 						<input type="hidden" name="_method" value="PATCH">
@@ -20,7 +24,7 @@
 						</div>
 						<div class="form-group">
 							<label>Upload new to change</label>
-							<input type="file" name="image" class="form-control {{ $errors->has('image') ? ' is-invalid' : '' }}" value="{{ old('image') }}" placeholder="Category image">
+							<input type="file" name="image" required class="form-control {{ $errors->has('image') ? ' is-invalid' : '' }}" value="{{ old('image') }}" placeholder="Category image">
 							@if($errors->has('image'))
 								<span class="invalid-feedback" role="alert">
 									<strong>{{ $errors->first('image') }}</strong>
@@ -29,7 +33,7 @@
 						</div>
 						<div class="form-group">
 							<label>Name</label>
-							<input type="name" name="name" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" value="{{ old('name') ? old('name'):$category->name }}" placeholder="Category name">
+							<input type="name" name="name" required class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" value="{{ old('name') ? old('name'):$category->name }}" placeholder="Category name">
 							@if($errors->has('name'))
 								<span class="invalid-feedback" role="alert">
 									<strong>{{ $errors->first('name') }}</strong>
@@ -48,19 +52,19 @@
 
 						<button type="submit" class="btn btn-primary">Update</button>
 					</form>
-                </div>
-            </div>
+				</div>
+			</div>
         </div>
+      </div>
+      
+      <!-- Footer --> 
     </div>
-</div>
 @endsection
 
 @section('scripts')
 <script>
 	jQuery(document).ready(function($) {
-		
+			$("#dtable").DataTables()
 	})
 </script>
 @endsection
-
-                                 
