@@ -11,6 +11,9 @@
 |
 */
 
+	Route::get('/', function () {
+	    return view('welcome');
+	});
 Route::get('/categories', 'CategoryController@categories');
 
 Route::get('/categories/places', function () {
