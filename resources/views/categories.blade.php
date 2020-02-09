@@ -45,11 +45,11 @@
                     @foreach($categories as $category)
                     <div class="col-md-3">
                         <div class="card mb-3">
-                          <img src="{{ Storage::url($category->image)}}" class="card-img-top" height="150">
+                          <img src="{{ Storage::url($category->image) }} " class="card-img-top" height="150">
                           <div class="card-body">
-                            <h5 class="card-title">{{ $category->name }}</h5>
+                            <h5 class="card-title"> <b>{{ $category->name }}</b></h5>
                             <p class="card-text">{{ $category->description }}</p>
-                            <a href="{{ url('categories/places') }}" class="btn btn-primary">More...</a>
+                            <a href="{{ url('categories/places/'.$category->id) }}" class="btn btn-primary">View destinations</a>
                           </div>
                         </div>
                     </div>

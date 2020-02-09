@@ -42,40 +42,16 @@
             <div class="col-md-12">
             
                 <div class="row">
-
-                    <a class="col-md-12" href="{{url('categories/places/chocolate-hills')}}"> 
-                        <div class="jumbotron my-4 alata" style="background: linear-gradient(rgba(14, 53, 15, 0.45), rgba(0, 79, 32, 0.7)), url('../img/choco.jpg')"> 
-                            <div class="container">
-                                <h1 class="display-4 bangers">Choholate hills</h1>
-                                <p class="lead">The Chocolate Hills form a rolling terrain of haycock-shaped hills – mounds of a generally conical and almost symmetrical shape.[5] Estimated to be from 1,268 to about 1,776 individual mounds, these cone-shaped or dome-shaped hills are actually made of grass-covered limestone. </p>
+                    @foreach($destinations as $destination)
+                        <a class="col-md-6" href="{{url('categories/places/chocolate-hills')}}"> 
+                            <div class="jumbotron my-4 alata" style="background: linear-gradient(rgba(14, 53, 15, 0.45), rgba(0, 79, 32, 0.7)), {{ Storage::url($destination->image) }}"> 
+                                <div class="container">
+                                    <h1 class="display-4 bangers">{{ $destination->name }}</h1>
+                                    <p class="lead">{{ $destination->description }}</p>
+                                </div>
                             </div>
-                        </div>
-                    </a>  
-                    <div class="col-md-12"> 
-                        <div class="jumbotron my-4 alata" style="background: linear-gradient(rgba(14, 53, 15, 0.45), rgba(0, 79, 32, 0.7)), url('../img/palm.jpg')"> 
-                            <div class="container">
-                                <h1 class="display-4 bangers">Lorem Ipsum</h1>
-                                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eleifend placerat interdum. Aliquam purus augue, rhoncus vel metus in, venenatis tristique nulla. Curabitur lectus libero, pharetra a purus id, maximus fermentum mauris. Etiam ex urna, convallis sed venenatis ac, varius eget ligula. Phasellus sed mauris nec ligula feugiat malesuada.</p>
-                            </div>
-                        </div>
-                    </div>  
-                    <div class="col-md-12"> 
-                        <div class="jumbotron my-4 alata" style="background: linear-gradient(rgba(14, 53, 15, 0.45), rgba(0, 79, 32, 0.7)), url('../img/beach.jpg')"> 
-                            <div class="container">
-                                <h1 class="display-4 bangers">Lorem Ipsum</h1>
-                                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eleifend placerat interdum. Aliquam purus augue, rhoncus vel metus in, venenatis tristique nulla. Curabitur lectus libero, pharetra a purus id, maximus fermentum mauris. Etiam ex urna, convallis sed venenatis ac, varius eget ligula. Phasellus sed mauris nec ligula feugiat malesuada.</p>
-                            </div>
-                        </div>
-                    </div>  
-                    <div class="col-md-12"> 
-                        <div class="jumbotron my-4 alata" style="background: linear-gradient(rgba(14, 53, 15, 0.45), rgba(0, 79, 32, 0.7)), url('../img/forest.jpg')"> 
-                            <div class="container">
-                                <h1 class="display-4 bangers">Lorem Ipsum</h1>
-                                <p class="lead ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eleifend placerat interdum. Aliquam purus augue, rhoncus vel metus in, venenatis tristique nulla. Curabitur lectus libero, pharetra a purus id, maximus fermentum mauris. Etiam ex urna, convallis sed venenatis ac, varius eget ligula. Phasellus sed mauris nec ligula feugiat malesuada.</p>
-                            </div>
-                        </div>
-                    </div>  
-
+                        </a>  
+                    @endforeach
                 </div>
 
             </div>

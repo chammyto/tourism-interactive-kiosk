@@ -8,11 +8,11 @@
           <div class="card shadow">
             <div class="card-header border-0">
               	<h3 class="mb-0 d-flex">
-              		Categories 
+              		Destinations 
 				</h3>
             </div>
             <div class="card-body col-md-6">
-				<form action="{{ url('category')}}" method="POST" enctype="multipart/form-data">
+				<form action="{{ url('destination')}}" method="POST" enctype="multipart/form-data">
 					{{ csrf_field() }}
 					<div class="form-group">
 						<label>Image</label>
@@ -41,6 +41,19 @@
 							</span>
 						@endif
 					</div>
+
+					<div class="form-group">
+						<label>Category</label>
+						<select name="category" class="custom-select" required>
+							<option value="" selected disabled>Select category</option>
+							@foreach($categories as $category)
+								<option value="{{ $category->id }}">{{ $category->name }}</option>
+							@endforeach
+							
+							
+						</select>
+					</div>
+
 					
 
 					<button type="submit" class="btn btn-primary">Save</button>
