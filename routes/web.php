@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/categories', 'CategoryController@categories');
 
 Route::get('/categories/places', function () {
@@ -26,6 +22,12 @@ Route::get('/categories/places/chocolate-hills', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('category', 'CategoryController');
+
+Route::middleware('auth')->group(function () {
+	Route::get('/home', function () {
+	    return view('admin.home');
+	});
+	Route::resource('category', 'CategoryController');
+});
