@@ -28,7 +28,11 @@
 								<td>{{ $category->description }}</td>
 								<td>
 									<a href="{{ url('category/'.$category->id.'/edit') }}" type="button" class="btn btn-info ml-auto text-white">Edit</a>
-									<a href="{{ url('category/'.$category->id.'') }}" type="button" class="btn btn-danger ml-auto text-white">Delete</a>
+									<a href="#" class="btn btn-danger" id="removeButton" type="button" class="btn btn-danger ml-auto text-white">Delete</a>
+									<form id="removeForm" action="{{ url('category/'.$category->id) }}" method="POST">
+										{{ csrf_field() }}
+										<input type="hidden" name="_method" value="DELETE">
+									</form>
 								</td>
 							</tr>
 							@endforeach
@@ -45,9 +49,11 @@
 
 @section('scripts')
 <script>
-	$(document).ready(() => {
-		alert(1)
-		$("#dtable").DataTables()
+	jQuery(document).ready(function($) {
+
+		$('#removeButton').click(() => {
+			$('#removeForm').submit()
+		})
 	})
 </script>
 @endsection

@@ -76,6 +76,21 @@
             @yield('content')
         </main>
     </div>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('dt/dt-1.10.18/css/datatables.bootstrap4.min.css') }}"/>
+    
+    <script type="text/javascript" src="{{ asset('dt/dt-1.10.18/js/jquery.dataTables.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('dt/dt-1.10.18/js/datatables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script> 
+    <script>
+        jQuery(document).ready(function($) {
+            "use strict";
+        })
+    </script>
     @yield('scripts')
 </body>
 </html>

@@ -50,9 +50,8 @@
 
 @section('scripts')
 <script>
-	$(document).ready(() => {
-		alert(1)
-		$("#dtable").DataTables()
+	jQuery(document).ready(function($) {
+			$("#dtable").DataTables()
 	})
 </script>
 @endsection
