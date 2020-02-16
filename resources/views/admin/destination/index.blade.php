@@ -40,16 +40,16 @@
 					</tr>
 					</thead>
 					<tbody> 
-						@foreach($destinations as $category)
+						@foreach($destinations as $destination)
 						<tr>
-							<th><img src="{{ Storage::url($category->image)}}" width="80" height="80" /></th>
-							<td>{{ $category->name }}</td>
-							<td>{{ $category->description }}</td>
-							<td>{{ $category->category }}</td>
+							<th><img src="{{ Storage::url($destination->image)}}" width="80" height="80" /></th>
+							<td>{{ $destination->name }}</td>
+							<td>{{ $destination->description }}</td>
+							<td>{{ $destination->category }}</td>
 							<td>
-								<a href="{{ url('category/'.$category->id.'/edit') }}" type="button" class="btn btn-info ml-auto text-white">Edit</a>
-								<a href="#" class="btn btn-danger" id="removeButton" type="button" class="btn btn-danger ml-auto text-white">Delete</a>
-								<form id="removeForm" action="{{ url('category/'.$category->id) }}" method="POST">
+								<a href="{{ url('destination/'.$destination->id.'/edit') }}" type="button" class="btn btn-info ml-auto text-white">Edit</a>
+								<a href="javascript:;" class="btn btn-danger removeButton"  type="button" class="btn btn-danger ml-auto text-white">Delete</a>
+								<form class="removeForm" action="{{ url('destination/'.$destination->id) }}" method="POST">
 									{{ csrf_field() }}
 									<input type="hidden" name="_method" value="DELETE">
 								</form>
@@ -68,8 +68,8 @@
 @section('scripts')
 <script>
 	$(document).ready(() => {
-		$('#removeButton').click(() => {
-			$('#removeForm').submit()
+		$('.removeButton').click(() => {
+			$(this).closest('.removeForm').submit()
 		})
 	})
 </script>

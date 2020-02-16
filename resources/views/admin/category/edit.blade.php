@@ -16,15 +16,9 @@
 					<form action="{{ url('category/'.$category->id)}}" method="POST" enctype="multipart/form-data">
 						{{ csrf_field() }}
 						<input type="hidden" name="_method" value="PATCH">
-						<div class="row">
-							<div class="col-md-6 py-3">
-								<img src="{{ Storage::url($category->image)}}" height="150" class="img-thumbnail">
-								
-							</div>
-						</div>
 						<div class="form-group">
-							<label>Upload new to change</label>
-							<input type="file" name="image" required class="form-control {{ $errors->has('image') ? ' is-invalid' : '' }}" value="{{ old('image') }}" placeholder="Category image">
+							<img id="preview" src="{{ Storage::url($category->image) }}" alt="your image" width="50%" height="50%" style="border: 1px solid #212121"/>
+							<input type="file" name="image" required class="col-md-6 form-control {{ $errors->has('image') ? ' is-invalid' : '' }}" value="{{ old('image') }}" placeholder="Category image">
 							@if($errors->has('image'))
 								<span class="invalid-feedback" role="alert">
 									<strong>{{ $errors->first('image') }}</strong>
@@ -64,7 +58,21 @@
 @section('scripts')
 <script>
 	jQuery(document).ready(function($) {
-			$("#dtable").DataTables()
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader()
+
+				reader.onload = function(e) {
+				$('#preview').attr('src', e.target.result)
+				}
+
+				reader.readAsDataURL(input.files[0])
+			}
+		}
+
+		$("#image").change(function() {
+			readURL(this)
+		})
 	})
 </script>
 @endsection

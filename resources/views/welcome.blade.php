@@ -27,7 +27,7 @@
                     </select>
                 </div>
 
-                <a href="{{ url('categories') }}" class="btn btn-success btn-lg font-weight-bold alata btn-block">
+                <a href="{{ url('menu') }}" class="btn btn-success btn-lg font-weight-bold alata btn-block">
                     GET STARTED
                 </a>
             </div>

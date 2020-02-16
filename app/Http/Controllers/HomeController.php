@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Categories;
+use App\Info;
+use App\Destination;
 
 class HomeController extends Controller
 {
@@ -27,5 +29,19 @@ class HomeController extends Controller
         return view('welcome');
     }
 
+    public function menu(){
+        return view('pages.menu');
+    }
+
+    public function about(){
+        $info = Info::find(1);
+        return view('pages.about', compact('info'));
+    }
+
+    public function place($id){
+        $place = Destination::find($id);
+
+        return view('pages.place', compact('place'));
+    }
     
 }

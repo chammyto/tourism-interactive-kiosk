@@ -8,33 +8,17 @@
                 <h2 class="mb-5 font-weight-bold righteous">Where do you want to go?</h2> 
             </div> 
 
-            @include('layouts.breadcrumbs') 
-           {{--  <div class="col-md-12">
-                
-                CHECKBOXES
+            <div class="col-md-12 mb-4"> 
+                <nav aria-label="breadcrumb"> 
 
-                <ul class="d-flex list-unstyled justify-content-start align-items-center">
-                    <li class="mr-4 alata font-weight-bold mb-4">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheck1">
-                            <label class="custom-control-label" for="customCheck1">Category 1</label>
-                        </div>
-                    </li>
-                    <li class="mr-4 alata font-weight-bold mb-4">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheck2">
-                            <label class="custom-control-label" for="customCheck2">Category 2</label>
-                        </div>
-                    </li>
-                    <li class="mr-4 alata font-weight-bold mb-4">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheck3">
-                            <label class="custom-control-label" for="customCheck3">Category 3</label>
-                        </div>
-                    </li>
-                </ul>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item font-weight-bold alata"><a href="{{url('menu')}}"> <i class="fa fa-cubes"></i>Menu</a></li> 
 
-            </div> --}}
+
+                    <li class="breadcrumb-item font-weight-bold alata active">Categories</li>
+                </ol>
+                </nav>
+            </div> 
 
 
 

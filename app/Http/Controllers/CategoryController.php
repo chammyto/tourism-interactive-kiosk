@@ -116,7 +116,14 @@ class CategoryController extends Controller
 
 
     public function categories(){
-        $categories = Category::all();
+
+        if(request('by') == 'location'){
+            $categories = [];
+
+        }else{
+            $categories = Category::all();
+
+        }
         
         return view('categories', compact('categories'));
     }

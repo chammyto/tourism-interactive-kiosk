@@ -15,8 +15,8 @@
 				<form action="{{ url('destination')}}" method="POST" enctype="multipart/form-data">
 					{{ csrf_field() }}
 					<div class="form-group">
-						<label>Image</label>
-						<input type="file" name="image" class="form-control {{ $errors->has('image') ? ' is-invalid' : '' }}" value="{{ old('image') }}" placeholder="Category image">
+						<img id="preview" src="{{ asset('img/placeholder3.png')}}" alt="your image" width="50%" height="50%" style="border: 1px solid #212121"/>
+						<input type="file" name="image" id="image" class="col-md-6 form-control {{ $errors->has('image') ? ' is-invalid' : '' }}" value="{{ old('image') }}" placeholder="Category image">
 						@if($errors->has('image'))
 							<span class="invalid-feedback" role="alert">
 								<strong>{{ $errors->first('image') }}</strong>
@@ -49,8 +49,6 @@
 							@foreach($categories as $category)
 								<option value="{{ $category->id }}">{{ $category->name }}</option>
 							@endforeach
-							
-							
 						</select>
 					</div>
 
@@ -70,7 +68,22 @@
 @section('scripts')
 <script>
 	jQuery(document).ready(function($) {
-			$("#dtable").DataTables()
+
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader()
+
+				reader.onload = function(e) {
+				$('#preview').attr('src', e.target.result)
+				}
+
+				reader.readAsDataURL(input.files[0])
+			}
+		}
+
+		$("#image").change(function() {
+			readURL(this)
+		})
 	})
 </script>
 @endsection

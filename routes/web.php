@@ -13,6 +13,12 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('/menu', 'HomeController@menu');
+Route::get('/about-bohol', 'HomeController@about');
+Route::get('/places/{id}', 'HomeController@place');
+
+
+
 Route::get('/categories', 'CategoryController@categories');
 
 Route::get('categories/places/{id}', 'DestinationController@places');
@@ -31,5 +37,5 @@ Route::middleware('auth')->group(function () {
 	});
 	Route::resource('category', 'CategoryController');
 	Route::resource('destination', 'DestinationController');
-
+	Route::resource('info', 'InfoController');
 });

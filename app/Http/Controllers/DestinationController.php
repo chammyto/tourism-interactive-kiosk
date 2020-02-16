@@ -76,9 +76,14 @@ class DestinationController extends Controller
      * @param  \App\Destination  $destination
      * @return \Illuminate\Http\Response
      */
-    public function edit(Destination $destination)
+    public function edit($id)
     {
         //
+        $destination = Destination::with('category')->find($id);
+        $categories = Category::all();
+
+       
+        return view('admin.destination.edit', compact('destination', 'categories'));
     }
 
     /**
@@ -88,9 +93,25 @@ class DestinationController extends Controller
      * @param  \App\Destination  $destination
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Destination $destination)
+    public function update($id)
     {
         //
+        $validation = request()->validate([
+            'name' => 'required',
+            'category' => 'required',
+            // 'rate' => 'required|regex:/^\d+(\.\d{1,2})?$/',
+        ]);
+
+        $destination = Destination::find($id);
+        if(request('image')){
+            $destination->image= request('image')->store('public/destination');
+        }
+        $destination->name = request('name');
+        $destination->description = request('description');
+        $destination->category = request('category');
+        $destination->save();
+
+        return redirect('destination')->withSuccess('success');
     }
 
     /**
@@ -99,9 +120,12 @@ class DestinationController extends Controller
      * @param  \App\Destination  $destination
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Destination $destination)
+    public function destroy($id)
     {
-        //
+        $service = Destination::find($id);
+        $service->delete();
+
+        return redirect('destination')->withDelete('success');
     }
 
     public function places($id){

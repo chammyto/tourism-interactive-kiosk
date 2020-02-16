@@ -5,16 +5,35 @@
     <div class="container h-100 pt-5">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="mb-5 font-weight-bold righteous">Chocolate Hills</h2>  
+                <h2 class="mb-5 font-weight-bold righteous">{{ $place->name }}</h2>  
             </div> 
 
-            @include('layouts.breadcrumbs')   
+            
+            <div class="col-md-12 mb-4"> 
+                <nav aria-label="breadcrumb"> 
+
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item font-weight-bold alata"><a href="{{url('menu')}}"> <i class="fa fa-cubes"></i>Menu</a></li> 
+
+                    <li class="breadcrumb-item font-weight-bold alata"><a href="javascript:history.back(); javascript:history.back()"> <i class="fa fa-cubes"></i>Categories</a></li> 
+                    <li class="breadcrumb-item font-weight-bold alata"><a href="javascript:history.back()"> <i class="fa fa-cubes"></i>Destinations</a></li> 
+
+
+                    <li class="breadcrumb-item font-weight-bold alata active">{{$place->name}}</li>
+                </ol>
+                </nav>
+            </div>
+
+
+
 
 
 
             <div class="col-md-12 mb-5">
-                <h2 class="my-3 font-weight-bold righteous">Chocolate Hills</h2>  
-                <p class="lead">The Chocolate Hills form a rolling terrain of haycock-shaped hills – mounds of a generally conical and almost symmetrical shape.[5] Estimated to be from 1,268 to about 1,776 individual mounds, these cone-shaped or dome-shaped hills are actually made of grass-covered limestone. </p> 
+
+                <img src="{{ Storage::url($place->image ) }}" class="d-block w-100 mb-5" alt="...">
+            
+                <p class="lead">{{ $place->description }}</p> 
             </div>
 
             <div class="col-md-12 mb-5">

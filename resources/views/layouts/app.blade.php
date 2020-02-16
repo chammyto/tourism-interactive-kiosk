@@ -86,9 +86,12 @@
     <script type="text/javascript" src="{{ asset('dt/dt-1.10.18/js/jquery.dataTables.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('dt/dt-1.10.18/js/datatables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script> 
+    <script type="text/javascript" src="{{ asset('js/ckeditor/ckeditor.js') }}"></script>
     <script>
         jQuery(document).ready(function($) {
             "use strict";
+
+            
         })
     </script>
     @yield('scripts')
