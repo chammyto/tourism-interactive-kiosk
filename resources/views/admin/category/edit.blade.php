@@ -12,39 +12,84 @@
 						Categories 
 					</h3>
 				</div>
-				<div class="card-body col-md-6">
+				<div class="card-body">
 					<form action="{{ url('category/'.$category->id)}}" method="POST" enctype="multipart/form-data">
 						{{ csrf_field() }}
 						<input type="hidden" name="_method" value="PATCH">
-						<div class="form-group">
-							<img id="preview" src="{{ Storage::url($category->image) }}" alt="your image" width="50%" height="50%" style="border: 1px solid #212121"/>
-							<input type="file" name="image" required class="col-md-6 form-control {{ $errors->has('image') ? ' is-invalid' : '' }}" value="{{ old('image') }}" placeholder="Category image">
-							@if($errors->has('image'))
-								<span class="invalid-feedback" role="alert">
-									<strong>{{ $errors->first('image') }}</strong>
-								</span>
-							@endif
-						</div>
-						<div class="form-group">
-							<label>Name</label>
-							<input type="name" name="name" required class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" value="{{ old('name') ? old('name'):$category->name }}" placeholder="Category name">
-							@if($errors->has('name'))
-								<span class="invalid-feedback" role="alert">
-									<strong>{{ $errors->first('name') }}</strong>
-								</span>
-							@endif
-						</div>
-						<div class="form-group">
-							<label>Description</label>
-							<textarea class="form-control {{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" id="exampleFormControlTextarea1" rows="3">{{ old('description') ? old('description'):$category->description }}</textarea>
-							@if($errors->has('description'))
-								<span class="invalid-feedback" role="alert">
-									<strong>{{ $errors->first('description') }}</strong>
-								</span>
-							@endif
+						<div class="row">
+							<div class="col-md-6">
+								
+								<div class="form-group">
+									<img id="preview" src="{{ Storage::url($category->image) }}" alt="your image" width="50%" height="50%" style="border: 1px solid #212121"/>
+									<input type="file" name="image" {{$category->image ? '':'required'}} class="col-md-6 form-control {{ $errors->has('image') ? ' is-invalid' : '' }}" value="{{ old('image') }}" placeholder="Category image">
+									@if($errors->has('image'))
+										<span class="invalid-feedback" role="alert">
+											<strong>{{ $errors->first('image') }}</strong>
+										</span>
+									@endif
+								</div>
+								<div class="form-group">
+									<label>Name</label>
+									<input type="name" name="name" required class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" value="{{ old('name') ? old('name'):$category->name }}" placeholder="Category name">
+									@if($errors->has('name'))
+										<span class="invalid-feedback" role="alert">
+											<strong>{{ $errors->first('name') }}</strong>
+										</span>
+									@endif
+								</div>
+								<div class="form-group">
+									<label>Description</label>
+									<textarea class="form-control {{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" id="exampleFormControlTextarea1" rows="3">{{ old('description') ? old('description'):$category->description }}</textarea>
+									@if($errors->has('description'))
+										<span class="invalid-feedback" role="alert">
+											<strong>{{ $errors->first('description') }}</strong>
+										</span>
+									@endif
+								</div>
+
+								<button type="submit" class="btn btn-primary">Update</button>
+
+							</div>
+
+							<div class="col-md-6">
+								 
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Location (Town)</label>
+											<select name="town" id="town" class="form-control">
+												<option value="">Select Town</option>
+												@foreach($towns as $town)
+													<option value="{{$town}}" {{ old('town') ? old('town'):$category->town == $town ? 'selected':'' }}>{{$town}}</option>
+												@endforeach
+											</select> 
+											@if($errors->has('town'))
+												<span class="invalid-feedback" role="alert">
+													<strong>{{ $errors->first('town') }}</strong>
+												</span>
+											@endif
+										</div>
+									</div>
+									<div class="col-md-8">
+										<div class="form-group">
+											<label>Street</label>
+											<input type="street" name="street" class="form-control {{ $errors->has('street') ? ' is-invalid' : '' }}" value="{{ old('street') ? old('street'):$category->street }}" placeholder="Street">
+											@if($errors->has('street'))
+												<span class="invalid-feedback" role="alert">
+													<strong>{{ $errors->first('street') }}</strong>
+												</span>
+											@endif
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+
+							
 						</div>
 
-						<button type="submit" class="btn btn-primary">Update</button>
+
 					</form>
 				</div>
 			</div>

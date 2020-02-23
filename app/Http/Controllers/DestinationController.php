@@ -18,7 +18,7 @@ class DestinationController extends Controller
     {
         $destinations = Destination::with('category')->get();
         
-        return view('admin.destination.index', compact('destinations'));
+    return view('admin.destination.index', compact('destinations'));
     }
 
     /**
@@ -30,8 +30,8 @@ class DestinationController extends Controller
     {
         //
         $categories = Category::all();
-
-        return view('admin.destination.create', compact('categories'));
+        $towns = [ 'Alburquerque', 'Alicia', 'Anda', 'Antequera', 'Baclayon', 'Balilihan', 'Batuan', 'Bilar', 'Buenavista', 'Calape', 'Candijay', 'Carmen', 'Catigbian', 'Clarin', 'Corella', 'Cortes', 'Dagohoy', 'Danao', 'Dauis', 'Dimiao', 'Duero', 'Garcia Hernandez', 'Guindulman', 'Inabanga', 'Jagna', 'Getafe', 'Lila', 'Loay', 'Loboc', 'Loon', 'Mabini', 'Maribojoc', 'Panglao', 'Pilar', 'Pres. Carlos P. Garcia (Pitogo)', 'Sagbayan (Borja)', 'San Isidro', 'San Miguel', 'Sevilla', 'Sierra Bullones', 'Sikatuna', 'Tagbilaran City', 'Talibon', 'Trinidad', 'Tubigon', 'Ubay', 'Valencia', 'Bien Unido', ];
+        return view('admin.destination.create', compact('categories', 'towns'));
     }
 
     /**
@@ -45,6 +45,8 @@ class DestinationController extends Controller
         $validation = request()->validate([
             'image' => 'required',
             'name' => 'required',
+            'town' => 'required',
+            'street' => 'required',
             'category' => 'required',
             // 'rate' => 'required|regex:/^\d+(\.\d{1,2})?$/',
         ]);
@@ -54,6 +56,8 @@ class DestinationController extends Controller
         $destination->name = request('name');
         $destination->description = request('description');
         $destination->category = request('category');
+        $destination->town = request('town');
+        $destination->street = request('street');
         $destination->save();
 
         return redirect('destination')->withSuccess('success');
@@ -81,9 +85,10 @@ class DestinationController extends Controller
         //
         $destination = Destination::with('category')->find($id);
         $categories = Category::all();
+        $towns = [ 'Alburquerque', 'Alicia', 'Anda', 'Antequera', 'Baclayon', 'Balilihan', 'Batuan', 'Bilar', 'Buenavista', 'Calape', 'Candijay', 'Carmen', 'Catigbian', 'Clarin', 'Corella', 'Cortes', 'Dagohoy', 'Danao', 'Dauis', 'Dimiao', 'Duero', 'Garcia Hernandez', 'Guindulman', 'Inabanga', 'Jagna', 'Getafe', 'Lila', 'Loay', 'Loboc', 'Loon', 'Mabini', 'Maribojoc', 'Panglao', 'Pilar', 'Pres. Carlos P. Garcia (Pitogo)', 'Sagbayan (Borja)', 'San Isidro', 'San Miguel', 'Sevilla', 'Sierra Bullones', 'Sikatuna', 'Tagbilaran City', 'Talibon', 'Trinidad', 'Tubigon', 'Ubay', 'Valencia', 'Bien Unido', ];
 
        
-        return view('admin.destination.edit', compact('destination', 'categories'));
+        return view('admin.destination.edit', compact('destination', 'categories', 'towns'));
     }
 
     /**
@@ -99,6 +104,8 @@ class DestinationController extends Controller
         $validation = request()->validate([
             'name' => 'required',
             'category' => 'required',
+            'town' => 'required',
+            'street' => 'required',
             // 'rate' => 'required|regex:/^\d+(\.\d{1,2})?$/',
         ]);
 
@@ -109,6 +116,9 @@ class DestinationController extends Controller
         $destination->name = request('name');
         $destination->description = request('description');
         $destination->category = request('category');
+
+        $destination->town = request('town');
+        $destination->street = request('street');
         $destination->save();
 
         return redirect('destination')->withSuccess('success');

@@ -36,6 +36,7 @@
 						<th scope="col">Name</th>
 						<th scope="col">Description</th>
 						<th scope="col">Category</th>
+						<th scope="col">Location</th>
 						<th scope="col">Actions</th>
 					</tr>
 					</thead>
@@ -45,7 +46,8 @@
 							<th><img src="{{ Storage::url($destination->image)}}" width="80" height="80" /></th>
 							<td>{{ $destination->name }}</td>
 							<td>{{ $destination->description }}</td>
-							<td>{{ $destination->category }}</td>
+							<td>{{ $destination->category_model->name }}</td>
+							<td>{{ $destination->street.', '.$destination->town.', Bohol' }}</td>
 							<td>
 								<a href="{{ url('destination/'.$destination->id.'/edit') }}" type="button" class="btn btn-info ml-auto text-white">Edit</a>
 								<a href="javascript:;" class="btn btn-danger removeButton"  type="button" class="btn btn-danger ml-auto text-white">Delete</a>

@@ -26,7 +26,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        $towns = [ 'Alburquerque', 'Alicia', 'Anda', 'Antequera', 'Baclayon', 'Balilihan', 'Batuan', 'Bilar', 'Buenavista', 'Calape', 'Candijay', 'Carmen', 'Catigbian', 'Clarin', 'Corella', 'Cortes', 'Dagohoy', 'Danao', 'Dauis', 'Dimiao', 'Duero', 'Garcia Hernandez', 'Guindulman', 'Inabanga', 'Jagna', 'Getafe', 'Lila', 'Loay', 'Loboc', 'Loon', 'Mabini', 'Maribojoc', 'Panglao', 'Pilar', 'Pres. Carlos P. Garcia (Pitogo)', 'Sagbayan (Borja)', 'San Isidro', 'San Miguel', 'Sevilla', 'Sierra Bullones', 'Sikatuna', 'Tagbilaran City', 'Talibon', 'Trinidad', 'Tubigon', 'Ubay', 'Valencia', 'Bien Unido', ];
+        return view('admin.category.create', ['towns'=>$towns]);
     }
 
     /**
@@ -40,6 +41,8 @@ class CategoryController extends Controller
         $validation = request()->validate([
             'image' => 'required',
             'name' => 'required',
+            'town' => 'required',
+            'street' => 'required',
             'description' => 'required',
             // 'rate' => 'required|regex:/^\d+(\.\d{1,2})?$/',
         ]);
@@ -48,6 +51,8 @@ class CategoryController extends Controller
         $category->image= request('image')->store('public/category');
         $category->name = request('name');
         $category->description = request('description');
+        $category->town = request('town');
+        $category->street = request('street');
         $category->save();
 
         return redirect('category')->withSuccess('success');
@@ -72,7 +77,8 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('admin.category.edit', ['category'=>$category]);
+        $towns = [ 'Alburquerque', 'Alicia', 'Anda', 'Antequera', 'Baclayon', 'Balilihan', 'Batuan', 'Bilar', 'Buenavista', 'Calape', 'Candijay', 'Carmen', 'Catigbian', 'Clarin', 'Corella', 'Cortes', 'Dagohoy', 'Danao', 'Dauis', 'Dimiao', 'Duero', 'Garcia Hernandez', 'Guindulman', 'Inabanga', 'Jagna', 'Getafe', 'Lila', 'Loay', 'Loboc', 'Loon', 'Mabini', 'Maribojoc', 'Panglao', 'Pilar', 'Pres. Carlos P. Garcia (Pitogo)', 'Sagbayan (Borja)', 'San Isidro', 'San Miguel', 'Sevilla', 'Sierra Bullones', 'Sikatuna', 'Tagbilaran City', 'Talibon', 'Trinidad', 'Tubigon', 'Ubay', 'Valencia', 'Bien Unido', ];
+        return view('admin.category.edit', ['category'=>$category, 'towns'=>$towns]);
     }
 
     /**
@@ -88,6 +94,9 @@ class CategoryController extends Controller
             // 'image' => 'required',
             'name' => 'required',
             'description' => 'required',
+            'town' => 'required',
+            'street' => 'required',
+
             // 'rate' => 'required|regex:/^\d+(\.\d{1,2})?$/',
         ]);
         if(request('image')){
@@ -95,6 +104,8 @@ class CategoryController extends Controller
         }
         $category->name = request('name');
         $category->description = request('description');
+        $category->town = request('town');
+        $category->street = request('street');
         $category->save();
 
         return redirect('category')->withSuccess('success');

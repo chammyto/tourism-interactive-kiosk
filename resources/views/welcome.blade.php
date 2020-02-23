@@ -20,10 +20,10 @@
                   </div>
                   {{-- <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"> --}}
                     <select class="form-control">
-                        <option>Sample</option>
-                        <option>Sample</option>
-                        <option>Sample</option>
-                        <option>Sample</option>
+                        <option>USA</option>
+                        <option>China</option>
+                        <option>Korea</option>
+                        <option>Philippines</option>
                     </select>
                 </div>
 

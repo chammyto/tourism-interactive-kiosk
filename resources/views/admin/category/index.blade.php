@@ -35,6 +35,7 @@
 						<th scope="col">Image</th>
 						<th scope="col">Name</th>
 						<th scope="col">Description</th>
+						<th scope="col">Location</th>
 						<th scope="col">Actions</th>
 					</tr>
 					</thead>
@@ -44,6 +45,7 @@
 							<th><img src="{{ Storage::url($category->image)}}" width="80" height="80" /></th>
 							<td>{{ $category->name }}</td>
 							<td>{{ $category->description }}</td>
+							<td>{{ $category->street.', '.$category->town.', Bohol' }}</td>
 							<td>
 								<a href="{{ url('category/'.$category->id.'/edit') }}" type="button" class="btn btn-info ml-auto text-white">Edit</a>
 								<a href="javascript:;" class="btn btn-danger" id="removeButton" type="button" class="btn btn-danger ml-auto text-white">Delete</a>
