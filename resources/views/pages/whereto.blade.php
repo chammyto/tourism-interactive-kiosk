@@ -31,7 +31,7 @@
                         <a class="col-md-6" href="{{url('places/'.$destination->id)}}"> 
                             <div class="jumbotron my-4 alata" style="background: linear-gradient(rgba(14, 53, 15, 0.45), rgba(0, 79, 32, 0.7)), {{ Storage::url($destination->image) }}"> 
                                 <div class="container">
-                                    <h1 class="display-4 bangers">{{ $destination->name }}</h1>
+                                    <h1 class="display-4 bangers notranslate">{{ $destination->name }}</h1>
                                     <p class="lead">{{ $destination->description }}</p>
                                 </div>
                             </div>

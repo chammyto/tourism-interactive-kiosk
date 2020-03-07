@@ -12,23 +12,15 @@
             </div>
             <div class="col-md-8 mx-auto mt-4">
                 <div class="form-group">
-                    <label><b>Select country and language</b></label>
+                    <label><b>Select your language</b></label>
                 </div> 
-                <div class="input-group mb-5 input-group-lg">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1"><i class="fa fa-flag"></i></span>
-                  </div>
-                  {{-- <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"> --}}
-                    <select class="form-control">
-                        <option>USA</option>
-                        <option>China</option>
-                        <option>Korea</option>
-                        <option>Philippines</option>
-                    </select>
+                <div class="input-group mb-5 input-group-lg p-0">
+                  <div id="google_translate_element" ></div>
                 </div>
+                
 
                 <a href="{{ url('menu') }}" class="btn btn-success btn-lg font-weight-bold alata btn-block">
-                    GET STARTED
+                    START
                 </a>
             </div>
         </div>

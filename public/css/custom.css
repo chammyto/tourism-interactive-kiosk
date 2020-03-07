@@ -116,3 +116,15 @@ a:hover *, a:hover{
     opacity: 0.7;
     left: 0;
 }
+
+#google_translate_element select {
+    font-size: 24px;
+    padding: 10px 0px;
+    width: '100%' !important;
+}
+#google_translate_element div {
+
+}
+#google_translate_element span {
+
+} 

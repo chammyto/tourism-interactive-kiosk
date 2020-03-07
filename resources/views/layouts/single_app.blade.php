@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Tourist KIOSK</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -31,5 +31,56 @@
             @yield('content')
         </main>
     </div>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script type="text/javascript">
+    
+        var ckDomain;
+        function googleTranslateElementInit() {
+            function getCookie(name){
+                var re = new RegExp(name + "=([^;]+)");
+                var value = re.exec(document.cookie);
+                return (value != null) ? unescape(value[1]) : null;
+            }
+
+
+
+            var kakan;
+            var googkakan;
+
+
+            kakan=getCookie("googtrans22");
+
+            $(document).on('change', '#google_translate_element', function (e) {
+                function getCookie(name){
+                    var re = new RegExp(name + "=([^;]+)");
+                    var value = re.exec(document.cookie);
+                    return (value != null) ? unescape(value[1]) : null;
+                }
+                googkakan=getCookie("googtrans");
+
+                document.cookie = "googtrans22="+googkakan+"; expires=Thu, 07-Mar-2047 20:22:40 GMT; path=/" + ckDomain;
+                document.cookie = "googtrans22="+googkakan+"; expires=Thu, 07-Mar-2047 20:22:40 GMT; path=/";
+            })
+
+            for (var ckDomain = window.location.hostname.split("."); 2 < ckDomain.length;){
+                ckDomain.shift();
+            }
+
+            ckDomain = ";domain=" + ckDomain.join(".");
+            // domain cookie
+            document.cookie = "googtrans="+kakan+"; expires=Thu, 07-Mar-2047 20:22:40 GMT; path=/" + ckDomain;
+            // host-only cookie (with no domain name definition)
+            document.cookie = "googtrans="+kakan+"; expires=Thu, 07-Mar-2047 20:22:40 GMT; path=/";
+
+            new google.translate.TranslateElement({
+                pageLanguage: 'sv',
+                autoDisplay: false,
+                layout: google.translate.TranslateElement
+            }, 'google_translate_element');
+
+            }
+        </script>
 </body>
 </html>
