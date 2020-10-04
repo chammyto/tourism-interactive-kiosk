@@ -16,9 +16,9 @@ class InfoController extends Controller
     {
         //
 
-        $info = Info::first();
+        $infos = Info::get();
 
-        return view('admin.info.index', compact('info'));
+        return view('admin.info.index', compact('infos'));
     }
 
     /**
@@ -29,6 +29,8 @@ class InfoController extends Controller
     public function create()
     {
         //
+
+        return view('admin.info.create');
     }
 
     /**
@@ -40,6 +42,17 @@ class InfoController extends Controller
     public function store(Request $request)
     {
         //
+        $validation = request()->validate([
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+
+        $info = new Info();
+        $info->title = request('title');
+        $info->description = request('description');
+        $info->save();
+
+        return redirect('info')->withSuccess('success');
     }
 
     /**

@@ -23,3 +23,6 @@ class DatabaseSeeder extends Seeder
 		$user->save();
     }
 }
+
+
+//api key: AIzaSyD-YdXs7ltaM7obqfWCFhiY32DMo_BjeP8

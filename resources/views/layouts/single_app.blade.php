@@ -24,6 +24,12 @@
 
 
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <style>
+        #map{
+        width: 100%;
+        height: 600px;
+        }
+    </style>  
 </head>
 <body>
     <div id="app">  

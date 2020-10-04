@@ -58,6 +58,9 @@ class DestinationController extends Controller
         $destination->category = request('category');
         $destination->town = request('town');
         $destination->street = request('street');
+        $destination->lat = request('lat');
+        $destination->lng = request('lng');
+
         $destination->save();
 
         return redirect('destination')->withSuccess('success');
@@ -119,6 +122,8 @@ class DestinationController extends Controller
 
         $destination->town = request('town');
         $destination->street = request('street');
+        $destination->lat = request('lat');
+        $destination->lng = request('lng');
         $destination->save();
 
         return redirect('destination')->withSuccess('success');

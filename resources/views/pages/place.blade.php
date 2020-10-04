@@ -1,7 +1,7 @@
 @extends('layouts.single_app')
 
 @section('content')
-    
+    {{$place}}
     <div class="container h-100 pt-5">
         <div class="row">
             <div class="col-md-12">
@@ -68,13 +68,51 @@
 
             <div class="col-md-12 mb-5">
                 <h2 class="mb-3 font-weight-bold righteous d-flex">
-                    <span>Map </span>
+                    <span>Location </span>
+                    <input type="hidden" id="lat" name="lat" value="{{ $place->lat }}">
+                    <input type="hidden" id="lng" name="lng" value="{{ $place->lng }}">
                     <div class="btn btn-success ml-auto"><i class="fa fa-send"></i> Send Location</div>
                 </h2> 
-                            <img src="{{ asset('img/choco.jpg') }}" class="d-block w-100" alt="...">
-
+                <div id="map"></div>
             </div>
         </div>
     </div>
 
 @endsection
+
+@section('scripts')
+    <script>
+		const boholCoords = {
+			lat: 9.7011,
+			lng: 124.0864
+		}
+
+		function initMap() {
+			let locatorMap = new google.maps.Map(document.getElementById("map"), {
+				center: boholCoords,
+				zoom: 10
+			});
+
+
+            const coords = {
+                lat: parseFloat(document.getElementById("lat").value),
+                lng: parseFloat(document.getElementById("lng").value)
+            }
+            console.log(coords)
+			let locationMarker = new google.maps.Marker({
+				position: coords,
+				map: locatorMap,
+				title: 'My location'
+			})
+			// function addMarker(coords){
+			// 	let locationMarker = new google.maps.Marker({
+			// 		position: coords,
+			// 		map: locatorMap,
+			// 		title: 'Location'
+			// 	})
+			// }
+		}
+
+	</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-YdXs7ltaM7obqfWCFhiY32DMo_BjeP8&callback=initMap" defer></script>
+@endsections

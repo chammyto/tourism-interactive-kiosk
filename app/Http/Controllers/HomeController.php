@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Categories;
+use App\Category;
 use App\Info;
 use App\Destination;
 
@@ -34,8 +34,8 @@ class HomeController extends Controller
     }
 
     public function about(){
-        $info = Info::find(1);
-        return view('pages.about', compact('info'));
+        $infos = Info::get();
+        return view('pages.about', compact('infos'));
     }
 
     public function place($id){
@@ -43,5 +43,24 @@ class HomeController extends Controller
 
         return view('pages.place', compact('place'));
     }
+
+    public function categories(Request $request){
+
+
+            $categories = Category::all();
+        
+
+        return view('categories', compact('categories'));
+    }
+
+    public function destinations(Request $request){
+        if($request->category){
+            $destinations = Destination::where('category', $request->category)->get();
+        }else{
+            $destinations = Destination::all();
+        }
+
+        return view('pages.whereto', compact('destinations'));
+    }
     
-}
+}   

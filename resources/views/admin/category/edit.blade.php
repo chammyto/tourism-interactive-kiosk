@@ -51,39 +51,6 @@
 
 							</div>
 
-							<div class="col-md-6">
-								 
-								<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<label>Location (Town)</label>
-											<select name="town" id="town" class="form-control">
-												<option value="">Select Town</option>
-												@foreach($towns as $town)
-													<option value="{{$town}}" {{ old('town') ? old('town'):$category->town == $town ? 'selected':'' }}>{{$town}}</option>
-												@endforeach
-											</select> 
-											@if($errors->has('town'))
-												<span class="invalid-feedback" role="alert">
-													<strong>{{ $errors->first('town') }}</strong>
-												</span>
-											@endif
-										</div>
-									</div>
-									<div class="col-md-8">
-										<div class="form-group">
-											<label>Street</label>
-											<input type="street" name="street" class="form-control {{ $errors->has('street') ? ' is-invalid' : '' }}" value="{{ old('street') ? old('street'):$category->street }}" placeholder="Street">
-											@if($errors->has('street'))
-												<span class="invalid-feedback" role="alert">
-													<strong>{{ $errors->first('street') }}</strong>
-												</span>
-											@endif
-										</div>
-									</div>
-								</div>
-
-							</div>
 
 
 							

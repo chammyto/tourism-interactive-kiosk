@@ -16,14 +16,14 @@
 				<div class="card-body">
 				@if(session()->has('success'))
 					<div class="alert alert-success alert-dismissible fade show" role="alert">
-						<strong>Success!</strong> Service has been saved successfully.
+						<strong>Success!</strong> Category has been saved successfully.
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
 				@elseif(session()->has('delete'))
 					<div class="alert alert-success alert-dismissible fade show" role="alert">
-						<strong>Success!</strong> Service has been deleted successfully!.
+						<strong>Success!</strong> Category has been deleted successfully!.
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 						</button>
@@ -35,7 +35,6 @@
 						<th scope="col">Image</th>
 						<th scope="col">Name</th>
 						<th scope="col">Description</th>
-						<th scope="col">Location</th>
 						<th scope="col">Actions</th>
 					</tr>
 					</thead>
@@ -45,7 +44,6 @@
 							<th><img src="{{ Storage::url($category->image)}}" width="80" height="80" /></th>
 							<td>{{ $category->name }}</td>
 							<td>{{ $category->description }}</td>
-							<td>{{ $category->street.', '.$category->town.', Bohol' }}</td>
 							<td>
 								<a href="{{ url('category/'.$category->id.'/edit') }}" type="button" class="btn btn-info ml-auto text-white">Edit</a>
 								<a href="javascript:;" class="btn btn-danger" id="removeButton" type="button" class="btn btn-danger ml-auto text-white">Delete</a>

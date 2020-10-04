@@ -1,7 +1,7 @@
 @extends('admin.template.app')
 
 @section('content')
-<div class="container-fluid mt--7 mb--7">
+<div class="container-fluid mt--7 mb-7">
       <!-- Table -->
       <div class="row">
         <div class="col">
@@ -11,7 +11,7 @@
               		Destinations 
 				</h3>
             </div>
-            <div class="card-body ">
+            <div class="card-body">
 				<form action="{{ url('destination')}}" method="POST" enctype="multipart/form-data">
 					{{ csrf_field() }}
 					
@@ -57,42 +57,48 @@
 						</div>
 						<div class="col-md-6">
 							
-								<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<label>Location (Town)</label>
-											<select name="town" id="town" class="form-control">
-												<option value="">Select Town</option>
-												@foreach($towns as $town)
-													<option value="{{$town}}" {{ old('town') == $town ? 'selected':'' }}>{{$town}}</option>
-												@endforeach
-											</select> 
-											@if($errors->has('town'))
-												<span class="invalid-feedback" role="alert">
-													<strong>{{ $errors->first('town') }}</strong>
-												</span>
-											@endif
-										</div>
-									</div>
-									<div class="col-md-8">
-										<div class="form-group">
-											<label>Street</label>
-											<input type="street" name="street" class="form-control {{ $errors->has('street') ? ' is-invalid' : '' }}" value="{{ old('street') }}" placeholder="Street">
-											@if($errors->has('street'))
-												<span class="invalid-feedback" role="alert">
-													<strong>{{ $errors->first('street') }}</strong>
-												</span>
-											@endif
-										</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Location (Town)</label>
+										<select name="town" id="town" class="form-control">
+											<option value="">Select Town</option>
+											@foreach($towns as $town)
+												<option value="{{$town}}" {{ old('town') == $town ? 'selected':'' }}>{{$town}}</option>
+											@endforeach
+										</select> 
+										@if($errors->has('town'))
+											<span class="invalid-feedback" role="alert">
+												<strong>{{ $errors->first('town') }}</strong>
+											</span>
+										@endif
 									</div>
 								</div>
+								<div class="col-md-8">
+									<div class="form-group">
+										<label>Street</label>
+										<input type="street" name="street" class="form-control {{ $errors->has('street') ? ' is-invalid' : '' }}" value="{{ old('street') }}" placeholder="Street">
+										@if($errors->has('street'))
+											<span class="invalid-feedback" role="alert">
+												<strong>{{ $errors->first('street') }}</strong>
+											</span>
+										@endif
+									</div>
+								</div>
+							</div>
+							<div class="row col-md-12">
+								<label>Set location on map</label>
+								<input type="hidden" id="lat" name="lat">
+								<input type="hidden" id="lng" name="lng">
+								<div id="map"></div>
+							</div>
 						</div>
 					</div>
-
 					
 
 					<button type="submit" class="btn btn-primary">Save</button>
 				</form>
+				
             </div>
           </div>
         </div>
@@ -103,9 +109,55 @@
 @endsection
 
 @section('scripts')
-<script>
-	jQuery(document).ready(function($) {
+	<script>
+		const boholCoords = {
+			lat: 9.7011,
+			lng: 124.0864
+		}
 
+		function initMap() {
+			let locatorMap = new google.maps.Map(document.getElementById("map"), {
+				center: boholCoords,
+				zoom: 10
+			});
+
+			let locationMarker = new google.maps.Marker({
+				position: boholCoords,
+				map: locatorMap,
+				draggable: true,
+				title: 'My location'
+			})
+			
+			const lat = locationMarker.getPosition().lat();
+				const lng = locationMarker.getPosition().lng();
+
+				// const { lat, lng} = locationMarker.getLocation()
+				$('#lat').val(lat)
+				$('#lng').val(lng)
+
+			locationMarker.addListener('mouseout', () => {
+				const lat = locationMarker.getPosition().lat();
+				const lng = locationMarker.getPosition().lng();
+
+				// const { lat, lng} = locationMarker.getLocation()
+				$('#lat').val(lat)
+				$('#lng').val(lng)
+
+			})
+		}
+
+	</script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-YdXs7ltaM7obqfWCFhiY32DMo_BjeP8&callback=initMap"
+		defer
+	>
+	
+	</script>
+	
+<script>
+
+	jQuery(document).ready(function($) {
+		
 		function readURL(input) {
 			if (input.files && input.files[0]) {
 				var reader = new FileReader()

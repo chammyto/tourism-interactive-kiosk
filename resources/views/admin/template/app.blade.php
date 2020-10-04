@@ -16,6 +16,12 @@
   <link href="{{ asset('assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="{{ asset('assets/css/argon-dashboard.css?v=1.1.2') }}" rel="stylesheet" />
+  <style>
+    #map{
+      width: 100%;
+      height: 400px;
+    }
+  </style>  
 </head>
 
 <body class="">

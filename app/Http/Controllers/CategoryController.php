@@ -41,8 +41,6 @@ class CategoryController extends Controller
         $validation = request()->validate([
             'image' => 'required',
             'name' => 'required',
-            'town' => 'required',
-            'street' => 'required',
             'description' => 'required',
             // 'rate' => 'required|regex:/^\d+(\.\d{1,2})?$/',
         ]);
@@ -51,8 +49,6 @@ class CategoryController extends Controller
         $category->image= request('image')->store('public/category');
         $category->name = request('name');
         $category->description = request('description');
-        $category->town = request('town');
-        $category->street = request('street');
         $category->save();
 
         return redirect('category')->withSuccess('success');
@@ -94,8 +90,6 @@ class CategoryController extends Controller
             // 'image' => 'required',
             'name' => 'required',
             'description' => 'required',
-            'town' => 'required',
-            'street' => 'required',
 
             // 'rate' => 'required|regex:/^\d+(\.\d{1,2})?$/',
         ]);
@@ -104,8 +98,6 @@ class CategoryController extends Controller
         }
         $category->name = request('name');
         $category->description = request('description');
-        $category->town = request('town');
-        $category->street = request('street');
         $category->save();
 
         return redirect('category')->withSuccess('success');

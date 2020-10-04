@@ -12,11 +12,11 @@
             </div>
         </div>
             <div class="row mt-4 d-flex justify-content-center align-items-center w-100 flex-wrap">
-                <a href="{{ url('categories?by=categories') }}" class="col-md-3 btn btn-success btn-lg font-weight-bold alata btn-block mx-3 my-0">
+                <a href="{{ url('categories') }}" class="col-md-3 btn btn-success btn-lg font-weight-bold alata btn-block mx-3 my-0">
                   Categories
                 </a>
-                <a href="{{ url('categories?by=location') }}" class="col-md-3 btn btn-success btn-lg font-weight-bold alata btn-block mx-3 my-0">
-                  Locations
+                <a href="{{ url('destinations') }}" class="col-md-3 btn btn-success btn-lg font-weight-bold alata btn-block mx-3 my-0">
+                  Destinations
                 </a>
                 <a href="{{ url('about-bohol') }}" class="col-md-3 btn btn-success btn-lg font-weight-bold alata btn-block mx-3 my-0">
                   Information

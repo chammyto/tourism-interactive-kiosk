@@ -7,8 +7,10 @@
 		
 			<div class="card shadow">
 				<div class="card-header border-0">
-					<h3 class="mb-0">
-						Bohol Information
+					<h3 class="mb-0 d-flex justify-content-center align-items-center">
+						Bohol Informations
+						<a href="{{ url('info/create') }}" type="button" class="btn btn-primary ml-auto">Add +</a>
+
 					</h3>
 				</div>
 				
@@ -28,20 +30,31 @@
 						</button>
 					</div>
 				@endif
-          <form method='post' action="{{ url('info/1') }}" >
-            {{ csrf_field() }}
-
-            <input type="hidden" class="type" name="_method" value="PATCH">
-
-            <div class="col-md-12">
-              <textarea name="description" id="editor" rows="20" style="width: '100%', height: 400px">
-                  {{ $info->description }}
-              </textarea>
-            </div>
-            <div class="col-md-12 mt-3">
-              <button type="submit" class="btn btn-primary">Update</button>
-            </div>
-          </form>
+				<table class="table align-items-center table-flush" id='dtable'>
+					<thead class="thead-light">
+					<tr>
+						<th scope="col">Title</th>
+						<th scope="col">Description</th>
+						<th scope="col">Actions</th>
+					</tr>
+					</thead>
+					<tbody> 
+						@foreach($infos as $info)
+						<tr>
+							<td>{{ $info->title }}</td>
+							<td>{!! $info->description !!}</td>
+							<td>
+								<a href="{{ url('info/'.$info->id.'/edit') }}" type="button" class="btn btn-info ml-auto text-white">Edit</a>
+								<a href="javascript:;" class="btn btn-danger removeButton"  type="button" class="btn btn-danger ml-auto text-white">Delete</a>
+								<form class="removeForm" action="{{ url('info/'.$info->id) }}" method="POST">
+									{{ csrf_field() }}
+									<input type="hidden" name="_method" value="DELETE">
+								</form>
+							</td>
+						</tr>
+						@endforeach
+					</tbody>
+				</table>
 				</div>
 			</div>
 		</div>
@@ -52,15 +65,9 @@
 @section('scripts')
 <script>
 	$(document).ready(() => {
-		$('#removeButton').click(() => {
-			$('#removeForm').submit()
+		$('.removeButton').click(() => {
+			$(this).closest('.removeForm').submit()
 		})
-
-    CKEDITOR.replace( 'editor', {
-      height: 500,
-    } );
-
-
 	})
 </script>
 @endsection

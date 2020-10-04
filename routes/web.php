@@ -19,7 +19,8 @@ Route::get('/places/{id}', 'HomeController@place');
 
 
 
-Route::get('/categories', 'CategoryController@categories');
+Route::get('/categories', 'HomeController@categories');
+Route::get('/destinations', 'HomeController@destinations');
 
 Route::get('categories/places/{id}', 'DestinationController@places');
 
