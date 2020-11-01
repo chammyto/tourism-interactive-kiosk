@@ -17,8 +17,8 @@ class DestinationController extends Controller
     public function index()
     {
         $destinations = Destination::with('category')->get();
-        
-    return view('admin.destination.index', compact('destinations'));
+
+        return view('admin.destination.index', compact('destinations'));
     }
 
     /**
@@ -30,7 +30,7 @@ class DestinationController extends Controller
     {
         //
         $categories = Category::all();
-        $towns = [ 'Alburquerque', 'Alicia', 'Anda', 'Antequera', 'Baclayon', 'Balilihan', 'Batuan', 'Bilar', 'Buenavista', 'Calape', 'Candijay', 'Carmen', 'Catigbian', 'Clarin', 'Corella', 'Cortes', 'Dagohoy', 'Danao', 'Dauis', 'Dimiao', 'Duero', 'Garcia Hernandez', 'Guindulman', 'Inabanga', 'Jagna', 'Getafe', 'Lila', 'Loay', 'Loboc', 'Loon', 'Mabini', 'Maribojoc', 'Panglao', 'Pilar', 'Pres. Carlos P. Garcia (Pitogo)', 'Sagbayan (Borja)', 'San Isidro', 'San Miguel', 'Sevilla', 'Sierra Bullones', 'Sikatuna', 'Tagbilaran City', 'Talibon', 'Trinidad', 'Tubigon', 'Ubay', 'Valencia', 'Bien Unido', ];
+        $towns = ['Alburquerque', 'Alicia', 'Anda', 'Antequera', 'Baclayon', 'Balilihan', 'Batuan', 'Bilar', 'Buenavista', 'Calape', 'Candijay', 'Carmen', 'Catigbian', 'Clarin', 'Corella', 'Cortes', 'Dagohoy', 'Danao', 'Dauis', 'Dimiao', 'Duero', 'Garcia Hernandez', 'Guindulman', 'Inabanga', 'Jagna', 'Getafe', 'Lila', 'Loay', 'Loboc', 'Loon', 'Mabini', 'Maribojoc', 'Panglao', 'Pilar', 'Pres. Carlos P. Garcia (Pitogo)', 'Sagbayan (Borja)', 'San Isidro', 'San Miguel', 'Sevilla', 'Sierra Bullones', 'Sikatuna', 'Tagbilaran City', 'Talibon', 'Trinidad', 'Tubigon', 'Ubay', 'Valencia', 'Bien Unido',];
         return view('admin.destination.create', compact('categories', 'towns'));
     }
 
@@ -52,7 +52,7 @@ class DestinationController extends Controller
         ]);
 
         $destination = new Destination();
-        $destination->image= request('image')->store('public/destination');
+        $destination->image = request('image')->store('public/destination');
         $destination->name = request('name');
         $destination->description = request('description');
         $destination->category = request('category');
@@ -88,9 +88,9 @@ class DestinationController extends Controller
         //
         $destination = Destination::with('category')->find($id);
         $categories = Category::all();
-        $towns = [ 'Alburquerque', 'Alicia', 'Anda', 'Antequera', 'Baclayon', 'Balilihan', 'Batuan', 'Bilar', 'Buenavista', 'Calape', 'Candijay', 'Carmen', 'Catigbian', 'Clarin', 'Corella', 'Cortes', 'Dagohoy', 'Danao', 'Dauis', 'Dimiao', 'Duero', 'Garcia Hernandez', 'Guindulman', 'Inabanga', 'Jagna', 'Getafe', 'Lila', 'Loay', 'Loboc', 'Loon', 'Mabini', 'Maribojoc', 'Panglao', 'Pilar', 'Pres. Carlos P. Garcia (Pitogo)', 'Sagbayan (Borja)', 'San Isidro', 'San Miguel', 'Sevilla', 'Sierra Bullones', 'Sikatuna', 'Tagbilaran City', 'Talibon', 'Trinidad', 'Tubigon', 'Ubay', 'Valencia', 'Bien Unido', ];
+        $towns = ['Alburquerque', 'Alicia', 'Anda', 'Antequera', 'Baclayon', 'Balilihan', 'Batuan', 'Bilar', 'Buenavista', 'Calape', 'Candijay', 'Carmen', 'Catigbian', 'Clarin', 'Corella', 'Cortes', 'Dagohoy', 'Danao', 'Dauis', 'Dimiao', 'Duero', 'Garcia Hernandez', 'Guindulman', 'Inabanga', 'Jagna', 'Getafe', 'Lila', 'Loay', 'Loboc', 'Loon', 'Mabini', 'Maribojoc', 'Panglao', 'Pilar', 'Pres. Carlos P. Garcia (Pitogo)', 'Sagbayan (Borja)', 'San Isidro', 'San Miguel', 'Sevilla', 'Sierra Bullones', 'Sikatuna', 'Tagbilaran City', 'Talibon', 'Trinidad', 'Tubigon', 'Ubay', 'Valencia', 'Bien Unido',];
 
-       
+
         return view('admin.destination.edit', compact('destination', 'categories', 'towns'));
     }
 
@@ -113,8 +113,8 @@ class DestinationController extends Controller
         ]);
 
         $destination = Destination::find($id);
-        if(request('image')){
-            $destination->image= request('image')->store('public/destination');
+        if (request('image')) {
+            $destination->image = request('image')->store('public/destination');
         }
         $destination->name = request('name');
         $destination->description = request('description');
@@ -143,9 +143,19 @@ class DestinationController extends Controller
         return redirect('destination')->withDelete('success');
     }
 
-    public function places($id){
+    public function places($id)
+    {
         $destinations = Destination::all();
 
         return view('pages.whereto', compact('destinations'));
+    }
+
+    public function sendLocation($id)
+    {
+        $destination = Destination::find($id);
+
+        $message = 'http://www.google.com/maps/place/' . $destination->lat . ',' . $destination->lng;
+
+        return redirect()->back()->withSuccess('success');
     }
 }

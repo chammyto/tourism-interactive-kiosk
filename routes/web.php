@@ -25,16 +25,18 @@ Route::get('/destinations', 'HomeController@destinations');
 Route::get('categories/places/{id}', 'DestinationController@places');
 
 Route::get('/categories/places/chocolate-hills', function () {
-    return view('pages/place');
+	return view('pages/place');
 });
 
 Auth::routes();
+Route::post('send-location/{id}', 'DestinationController@sendLocation');
+
 
 
 
 Route::middleware('auth')->group(function () {
 	Route::get('/admin', function () {
-	    return view('admin.home');
+		return view('admin.home');
 	});
 	Route::resource('category', 'CategoryController');
 	Route::resource('destination', 'DestinationController');
