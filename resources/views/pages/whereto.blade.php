@@ -5,7 +5,7 @@
     <div class="container h-100 pt-5">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="mb-5 font-weight-bold righteous">Where do you want to go?</h2> 
+                <h2 class="mb-5 font-weight-bold righteous text-white">Where do you want to go?</h2> 
             </div> 
 
              <div class="col-md-12 mb-4"> 

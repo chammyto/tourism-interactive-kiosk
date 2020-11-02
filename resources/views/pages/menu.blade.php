@@ -5,10 +5,10 @@
     <div class="container h-100 d-flex justify-content-center align-items-center flex-column">
         <div class="row w-100">
             <div class="col-md-12 text-center">
-                <h1 class="mb-5 font-weight-bold righteous">Welcome to BOHOL</h1>
+                <h1 class="mb-5 font-weight-bold righteous text-white">Welcome to BOHOL</h1>
 
 
-                <h4 class="mb-5 font-weight-bold">Get started</h4>
+                <h4 class="mb-5 font-weight-bold text-white">Get started</h4>
             </div>
         </div>
             <div class="row mt-4 d-flex justify-content-center align-items-center w-100 flex-wrap">
@@ -22,6 +22,6 @@
                   Information
                 </a>
             </div>
-    </div>
+  </div>
 
 @endsection

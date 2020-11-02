@@ -4,7 +4,7 @@
 <div class="container h-100 pt-5">
     <div class="row">
         <div class="col-md-12">
-            <h2 class="mb-5 font-weight-bold righteous">{{ $place->name }}</h2>
+            <h2 class="mb-5 font-weight-bold righteous text-white">{{ $place->name }}</h2>
         </div>
 
 
@@ -31,12 +31,16 @@
         <div class="col-md-12 mb-5">
 
             <img src="{{ Storage::url($place->image ) }}" class="d-block w-100 mb-5" alt="...">
-
-            <p class="lead">{{ $place->description }}</p>
+            <h2 class="mb-3 font-weight-bold righteous">Address</h2>
+            <p  class="mt-3">{{ $place->street }} , {{ $place->town }}</p>
+            <h2 class="mb-3 font-weight-bold righteous">Description</h2>
+            <p class="mt-3">{{ $place->description }}</p>
+          
+            
         </div>
 
         <div class="col-md-12 mb-5">
-            <h2 class="mb-3 font-weight-bold righteous">Spoilers</h2>
+            
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>

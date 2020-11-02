@@ -156,6 +156,8 @@ class DestinationController extends Controller
 
         $message = 'http://www.google.com/maps/place/' . $destination->lat . ',' . $destination->lng;
 
+        
+
         return redirect()->back()->withSuccess('success');
     }
 }

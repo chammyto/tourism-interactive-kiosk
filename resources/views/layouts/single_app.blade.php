@@ -34,7 +34,8 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="app "  style="height: 100%; background: url(/img/choco.jpg) center center no-repeat;
+  background-size: cover; background-attachment: fixed">
         <main class="py-4">
             @yield('content')
         </main>

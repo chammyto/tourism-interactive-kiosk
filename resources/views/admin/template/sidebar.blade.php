@@ -7,11 +7,6 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="ni ni-circle-08 text-pink"></i> Users
-            </a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link " href="{{ url('category') }}">
               <i class="ni ni-map-big text-blue"></i> Categories
             </a>
@@ -26,10 +21,7 @@
               <i class="ni ni-chart-bar-32 text-pink"></i> Information
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="ni ni-chart-bar-32 text-pink"></i> Reports
-            </a>
-          </li>
+          
 
         </ul>
+

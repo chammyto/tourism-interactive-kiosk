@@ -2,7 +2,7 @@
     <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
       <div class="container-fluid">
         <!-- Brand -->
-        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="#">Admin</a> 
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="#"></a> 
         <!-- User -->
         <ul class="navbar-nav align-items-center d-none d-md-flex">
           <li class="nav-item dropdown">
@@ -18,22 +18,7 @@
                 <h5 class="text-overflow m-0">{{ Auth::user()->name }}</h5>
                 <h6 class="text-overflow m-0" style="text-transform: unset !important;">{{ Auth::user()->email}}</h6>
               </div>
-              {{-- <a href="examples/profile.html" class="dropdown-item">
-                <i class="ni ni-single-02"></i>
-                <span>My profile</span>
-              </a>
-              <a href="examples/profile.html" class="dropdown-item">
-                <i class="ni ni-settings-gear-65"></i>
-                <span>Settings</span>
-              </a>
-              <a href="examples/profile.html" class="dropdown-item">
-                <i class="ni ni-calendar-grid-58"></i>
-                <span>Activity</span>
-              </a>
-              <a href="examples/profile.html" class="dropdown-item">
-                <i class="ni ni-support-16"></i>
-                <span>Support</span>
-              </a> --}}
+              
               <div class="dropdown-divider"></div>
               <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

@@ -46,8 +46,8 @@
 							<td>{{ $category->description }}</td>
 							<td>
 								<a href="{{ url('category/'.$category->id.'/edit') }}" type="button" class="btn btn-info ml-auto text-white">Edit</a>
-								<a href="javascript:;" class="btn btn-danger" id="removeButton" type="button" class="btn btn-danger ml-auto text-white">Delete</a>
-								<form id="removeForm" action="{{ url('category/'.$category->id) }}" method="POST">
+								<div class="btn btn-danger removeButton" type="button" class="btn btn-danger ml-auto text-white">Delete</a>
+								<form class="removeForm" action="{{ url('category/'.$category->id) }}" method="POST">
 									{{ csrf_field() }}
 									<input type="hidden" name="_method" value="DELETE">
 								</form>
@@ -65,10 +65,12 @@
 
 @section('scripts')
 <script>
-	$(document).ready(() => {
-		$('#removeButton').click(() => {
-			$(this).closest('#removeForm').submit()
-		})
+
+	$(document).on('click', '.removeButton', () => {
+		const form = $(event.target).parent().find('.removeForm')
+		form.submit()
+		console.log(form)
 	})
+
 </script>
 @endsection

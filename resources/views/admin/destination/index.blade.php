@@ -46,7 +46,7 @@
 							<th><img src="{{ Storage::url($destination->image)}}" width="80" height="80" /></th>
 							<td>{{ $destination->name }}</td>
 							<td>{{ $destination->description }}</td>
-							<td>{{ $destination->category_model->name }}</td>
+							<td>{{ $destination->category_model ? $destination->category_model->name : '' }}</td>
 							<td>{{ $destination->street.', '.$destination->town.', Bohol' }}</td>
 							<td>
 								<a href="{{ url('destination/'.$destination->id.'/edit') }}" type="button" class="btn btn-info ml-auto text-white">Edit</a>

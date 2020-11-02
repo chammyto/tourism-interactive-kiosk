@@ -33,7 +33,7 @@
                           <div class="card-body">
                             <h5 class="card-title"> <b>{{ $category->name }}</b></h5>
                             <p class="card-text">{{ $category->description }}</p>
-                            <a href="{{ url('destinations?category='.$category->id) }}" class="btn btn-primary">View destinations</a>
+                            <a href="{{ url('destinations?category='.$category->id) }}" class="btn btn-success">View destinations</a>
                           </div>
                         </div>
                     </div>
