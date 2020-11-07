@@ -1,7 +1,7 @@
 @extends('admin.template.app')
 
 @section('content')
-<div class="container-fluid mt--2 mb--1">
+<div class="container-fluid mt--7 mb--7">
 	<!-- Table -->
 	<div class="row">
 		<div class="col">
@@ -50,7 +50,7 @@
 									<select name="category" class="custom-select" required>
 										<option value="" disabled>Select category </option>
 										@foreach($categories as $category)
-										<option value="{{ $category->id }} {{ $destination->category == $category->id ? 'selected' : '' }}">{{ $category->name }}</option>
+										<option value="{{ $category->id }}" {{ $destination->category == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
 										@endforeach
 									</select>
 								</div>
@@ -68,7 +68,7 @@
 												<option value="">Select Town</option>
 												@foreach($towns as $town)
 
-												<option value="{{$town}}" {{ $category->town == $town ? 'selected' : '' }}>{{$town}}</option>
+												<option value="{{$town}}" {{ $destination->town == $town ? 'selected' : '' }}>{{$town}}</option>
 												@endforeach
 											</select>
 											@if($errors->has('town'))
@@ -81,7 +81,7 @@
 									<div class="col-md-8">
 										<div class="form-group">
 											<label>Street</label>
-											<input type="street" name="street" class="form-control {{ $errors->has('street') ? ' is-invalid' : '' }}" value="{{ old('street') ? old('street'):$category->street }}" placeholder="Street">
+											<input type="street" name="street" class="form-control {{ $errors->has('street') ? ' is-invalid' : '' }}" value="{{ old('street') ? old('street') : $destination->street }}" placeholder="Street">
 											@if($errors->has('street'))
 											<span class="invalid-feedback" role="alert">
 												<strong>{{ $errors->first('street') }}</strong>
@@ -100,7 +100,44 @@
 							</div>
 
 						</div>
+						<div class="row col-md-12">
+							<p>Media</p>
+							<div id="media row col-md-12">
 
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-md-4">
+								<img id="preview1" src="{{ asset('img/placeholder3.png')}}" alt="your image" width="100%" height="264" style="border: 1px solid #212121" />
+								<input type="file" name="media[]" id="media1" class="" value="" placeholder="Destination media">
+								@if($errors->has('image'))
+								<span class="invalid-feedback" role="alert">
+									<strong>{{ $errors->first('image') }}</strong>
+								</span>
+								@endif
+							</div>
+
+							<div class="form-group col-md-4">
+								<img id="preview2" src="{{ asset('img/placeholder3.png')}}" alt="your image" width="100%" height="264" style="border: 1px solid #212121" />
+								<input type="file" name="media[]" id="media2" class="" value="" placeholder="Destination media">
+								@if($errors->has('image'))
+								<span class="invalid-feedback" role="alert">
+									<strong>{{ $errors->first('image') }}</strong>
+								</span>
+								@endif
+							</div>
+
+							<div class="form-group col-md-4">
+								<img id="preview3" src="{{ asset('img/placeholder3.png')}}" alt="your image" width="100%" height="264" style="border: 1px solid #212121" />
+								<input type="file" name="media[]" id="media3" class="" value="" placeholder="Destination media">
+								@if($errors->has('image'))
+								<span class="invalid-feedback" role="alert">
+									<strong>{{ $errors->first('image') }}</strong>
+								</span>
+								@endif
+							</div>
+
+						</div>
 
 						<button type="submit" class="btn btn-primary">Save</button>
 					</form>
@@ -173,6 +210,41 @@
 		$("#image").change(function() {
 			readURL(this)
 		})
+	})
+	$("#media1").change(function() {
+		if (this.files && this.files[0]) {
+			var reader = new FileReader()
+
+			reader.onload = function(e) {
+				$('#preview1').attr('src', e.target.result)
+			}
+
+			reader.readAsDataURL(this.files[0])
+		}
+	})
+
+	$("#media2").change(function() {
+		if (this.files && this.files[0]) {
+			var reader = new FileReader()
+
+			reader.onload = function(e) {
+				$('#preview2').attr('src', e.target.result)
+			}
+
+			reader.readAsDataURL(this.files[0])
+		}
+	})
+
+	$("#media3").change(function() {
+		if (this.files && this.files[0]) {
+			var reader = new FileReader()
+
+			reader.onload = function(e) {
+				$('#preview3').attr('src', e.target.result)
+			}
+
+			reader.readAsDataURL(this.files[0])
+		}
 	})
 </script>
 @endsection

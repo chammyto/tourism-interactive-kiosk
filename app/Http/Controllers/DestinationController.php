@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Destination;
 use App\Category;
-
+use App\DestinationMedia;
 use Illuminate\Http\Request;
 
 class DestinationController extends Controller
@@ -61,6 +61,13 @@ class DestinationController extends Controller
         $destination->lat = request('lat');
         $destination->lng = request('lng');
 
+        foreach ($request->file('media') as $media) {
+            $m = new DestinationMedia();
+            $m->source = $media->store('public/destination');
+            $m->destination_id = $destination->id;
+            $m->save();
+        }
+
         $destination->save();
 
         return redirect('destination')->withSuccess('success');
@@ -87,7 +94,7 @@ class DestinationController extends Controller
     {
         //
         $destination = Destination::with('category')->find($id);
-        $categories = Category::all();
+        $categories = Category::get();
         $towns = ['Alburquerque', 'Alicia', 'Anda', 'Antequera', 'Baclayon', 'Balilihan', 'Batuan', 'Bilar', 'Buenavista', 'Calape', 'Candijay', 'Carmen', 'Catigbian', 'Clarin', 'Corella', 'Cortes', 'Dagohoy', 'Danao', 'Dauis', 'Dimiao', 'Duero', 'Garcia Hernandez', 'Guindulman', 'Inabanga', 'Jagna', 'Getafe', 'Lila', 'Loay', 'Loboc', 'Loon', 'Mabini', 'Maribojoc', 'Panglao', 'Pilar', 'Pres. Carlos P. Garcia (Pitogo)', 'Sagbayan (Borja)', 'San Isidro', 'San Miguel', 'Sevilla', 'Sierra Bullones', 'Sikatuna', 'Tagbilaran City', 'Talibon', 'Trinidad', 'Tubigon', 'Ubay', 'Valencia', 'Bien Unido',];
 
 
@@ -101,7 +108,7 @@ class DestinationController extends Controller
      * @param  \App\Destination  $destination
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update(Request $request, $id)
     {
         //
         $validation = request()->validate([
@@ -125,6 +132,13 @@ class DestinationController extends Controller
         $destination->lat = request('lat');
         $destination->lng = request('lng');
         $destination->save();
+
+        foreach ($request->file('media') as $media) {
+            $m = new DestinationMedia();
+            $m->source = $media->store('public/destination');
+            $m->destination_id = $destination->id;
+            $m->save();
+        }
 
         return redirect('destination')->withSuccess('success');
     }
@@ -156,7 +170,8 @@ class DestinationController extends Controller
 
         $message = 'http://www.google.com/maps/place/' . $destination->lat . ',' . $destination->lng;
 
-        
+
+
 
         return redirect()->back()->withSuccess('success');
     }

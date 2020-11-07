@@ -100,9 +100,36 @@
 
 							</div>
 						</div>
-						<div class="row col-md-12">
-							<div class="btn btn-secondary" id="add-media">Add media</div>
-							<input type="file" class="form-control" name="img[]" multiple accept="image/*" required>
+						<div class="row">
+							<div class="form-group col-md-4">
+								<img id="preview1" src="{{ asset('img/placeholder3.png')}}" alt="your image" width="100%" height="264" style="border: 1px solid #212121" />
+								<input type="file" name="media[]" id="media1" class="" value="" placeholder="Destination media">
+								@if($errors->has('image'))
+								<span class="invalid-feedback" role="alert">
+									<strong>{{ $errors->first('image') }}</strong>
+								</span>
+								@endif
+							</div>
+
+							<div class="form-group col-md-4">
+								<img id="preview2" src="{{ asset('img/placeholder3.png')}}" alt="your image" width="100%" height="264" style="border: 1px solid #212121" />
+								<input type="file" name="media[]" id="media2" class="" value="" placeholder="Destination media">
+								@if($errors->has('image'))
+								<span class="invalid-feedback" role="alert">
+									<strong>{{ $errors->first('image') }}</strong>
+								</span>
+								@endif
+							</div>
+
+							<div class="form-group col-md-4">
+								<img id="preview3" src="{{ asset('img/placeholder3.png')}}" alt="your image" width="100%" height="264" style="border: 1px solid #212121" />
+								<input type="file" name="media[]" id="media3" class="" value="" placeholder="Destination media">
+								@if($errors->has('image'))
+								<span class="invalid-feedback" role="alert">
+									<strong>{{ $errors->first('image') }}</strong>
+								</span>
+								@endif
+							</div>
 
 						</div>
 
@@ -179,6 +206,44 @@
 		$("#image").change(function() {
 			readURL(this)
 		})
+
+		$("#media1").change(function() {
+			if (this.files && this.files[0]) {
+				var reader = new FileReader()
+
+				reader.onload = function(e) {
+					$('#preview1').attr('src', e.target.result)
+				}
+
+				reader.readAsDataURL(this.files[0])
+			}
+		})
+
+		$("#media2").change(function() {
+			if (this.files && this.files[0]) {
+				var reader = new FileReader()
+
+				reader.onload = function(e) {
+					$('#preview2').attr('src', e.target.result)
+				}
+
+				reader.readAsDataURL(this.files[0])
+			}
+		})
+
+		$("#media3").change(function() {
+			if (this.files && this.files[0]) {
+				var reader = new FileReader()
+
+				reader.onload = function(e) {
+					$('#preview3').attr('src', e.target.result)
+				}
+
+				reader.readAsDataURL(this.files[0])
+			}
+		})
+
+
 	})
 </script>
 @endsection
