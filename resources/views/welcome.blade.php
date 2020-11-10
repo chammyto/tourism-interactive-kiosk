@@ -48,8 +48,6 @@
 
 <script>
     $('#start').click(() => {
-        alert(1)
-
         $.ajax({
             url: "{{url('visitor')}}",
             method: 'POST',

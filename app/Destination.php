@@ -8,10 +8,15 @@ class Destination extends Model
 {
     public function category()
     {
-        return $this->belongsTo(Category::class, 'category', 'id')->withTrashed();;
+        return $this->belongsTo(Category::class, 'category', 'id')->withTrashed();
     }
     public function category_model()
     {
-        return $this->belongsTo(Category::class, 'category', 'id')->withTrashed();;
+        return $this->belongsTo(Category::class, 'category', 'id')->withTrashed();
+    }
+
+    public function media()
+    {
+        return $this->hasMany(DestinationMedia::class);
     }
 }

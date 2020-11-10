@@ -13,11 +13,8 @@
 
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item font-weight-bold alata"><a href="{{url('menu')}}"> <i class="fa fa-cubes"></i>Menu</a></li>
-
                     <li class="breadcrumb-item font-weight-bold alata"><a href="javascript:history.back(); javascript:history.back()"> <i class="fa fa-cubes"></i>Categories</a></li>
                     <li class="breadcrumb-item font-weight-bold alata"><a href="javascript:history.back()"> <i class="fa fa-cubes"></i>Destinations</a></li>
-
-
                     <li class="breadcrumb-item font-weight-bold alata active">{{$place->name}}</li>
                 </ol>
             </nav>
@@ -30,17 +27,16 @@
 
         <div class="col-md-12 mb-5">
 
-            <img src="{{ Storage::url($place->image ) }}" class="d-block w-100 mb-5" alt="...">
+            <img src="{{ Storage::url($place->image ) }}" height="742" class="d-block w-100 mb-5" alt="...">
             <h2 class="mb-3 font-weight-bold righteous">Address</h2>
-            <p  class="mt-3">{{ $place->street }} , {{ $place->town }}</p>
+            <p class="mt-3">{{ $place->street }} , {{ $place->town }}</p>
             <h2 class="mb-3 font-weight-bold righteous">Description</h2>
             <p class="mt-3">{{ $place->description }}</p>
-          
-            
+
+
         </div>
 
         <div class="col-md-12 mb-5">
-            
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -48,15 +44,17 @@
                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="{{ asset('img/choco.jpg') }}" class="d-block w-100" alt="...">
+                    @php
+                    $index = 0;
+                    @endphp
+                    @foreach($place->media as $media)
+                    <div class="carousel-item {{ $index == 0 ? 'active' : ''}}">
+                        <img src="{{ Storage::url($media->source ) }}" height="742" class="d-block w-100" alt="...">
                     </div>
-                    <div class="carousel-item">
-                        <img src="{{ asset('img/choco.jpg') }}" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{{ asset('img/choco.jpg') }}" class="d-block w-100" alt="...">
-                    </div>
+                    @php
+                    $index ++;
+                    @endphp
+                    @endforeach
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

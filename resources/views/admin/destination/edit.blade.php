@@ -107,36 +107,27 @@
 							</div>
 						</div>
 						<div class="row">
+							@php
+							$index = 1
+							@endphp
+							@foreach($destination->media as $media)
 							<div class="form-group col-md-4">
-								<img id="preview1" src="{{ asset('img/placeholder3.png')}}" alt="your image" width="100%" height="264" style="border: 1px solid #212121" />
-								<input type="file" name="media[]" id="media1" class="" value="" placeholder="Destination media">
+								<img id="preview{{$index}}" src="{{ Storage::url($media->source ) }}" alt="your image" width="100%" height="264" style="border: 1px solid #212121" />
+								<div class="row">
+									<input type="file" name="media[]" id="media{{$index}}" class="col-md-10" value="{{ $media->source}}" placeholder="Destination media">
+									<div class="btn btn-danger remove">X</div>
+								</div>
+
 								@if($errors->has('image'))
 								<span class="invalid-feedback" role="alert">
 									<strong>{{ $errors->first('image') }}</strong>
 								</span>
 								@endif
 							</div>
-
-							<div class="form-group col-md-4">
-								<img id="preview2" src="{{ asset('img/placeholder3.png')}}" alt="your image" width="100%" height="264" style="border: 1px solid #212121" />
-								<input type="file" name="media[]" id="media2" class="" value="" placeholder="Destination media">
-								@if($errors->has('image'))
-								<span class="invalid-feedback" role="alert">
-									<strong>{{ $errors->first('image') }}</strong>
-								</span>
-								@endif
-							</div>
-
-							<div class="form-group col-md-4">
-								<img id="preview3" src="{{ asset('img/placeholder3.png')}}" alt="your image" width="100%" height="264" style="border: 1px solid #212121" />
-								<input type="file" name="media[]" id="media3" class="" value="" placeholder="Destination media">
-								@if($errors->has('image'))
-								<span class="invalid-feedback" role="alert">
-									<strong>{{ $errors->first('image') }}</strong>
-								</span>
-								@endif
-							</div>
-
+							@php
+							$index++
+							@endphp
+							@endforeach
 						</div>
 
 						<button type="submit" class="btn btn-primary">Save</button>
@@ -194,6 +185,10 @@
 
 <script>
 	jQuery(document).ready(function($) {
+
+		$(document).on('click', '.remove', () => {
+			$(this).parent().parent().html('<p></p>')
+		})
 
 		function readURL(input) {
 			if (input.files && input.files[0]) {

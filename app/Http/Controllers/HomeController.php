@@ -52,7 +52,7 @@ class HomeController extends Controller
 
     public function place($id)
     {
-        $place = Destination::find($id);
+        $place = Destination::with('media')->find($id);
 
         return view('pages.place', compact('place'));
     }
