@@ -33,10 +33,10 @@
     </style>
 </head>
 
-<body>
-    <div id="app "  style="height: 100%; background: url(/img/background.jpg) center center no-repeat;
+<body style="background: url(/img/background.jpg) center center no-repeat;
   background-size: cover; background-attachment: fixed">
-        <main class="py-4">
+    <div id="">
+        <main class="py-4 " style="height: 90vh">
             @yield('content')
         </main>
     </div>

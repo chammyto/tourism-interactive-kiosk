@@ -134,11 +134,27 @@ class DestinationController extends Controller
         $destination->lng = request('lng');
         $destination->save();
 
-        foreach ($request->file('media') as $media) {
-            $m = new DestinationMedia();
-            $m->source = $media->store('public/destination');
-            $m->destination_id = $destination->id;
-            $m->save();
+        foreach ($request->media_id as $key => $media_id) {
+            if ($media_id != 0) {
+                if (empty($request->file('media')[$key])) {
+                    if (!empty($request->media_deleted[$key])) {
+                        $m = DestinationMedia::find($media_id);
+                        $m->delete();
+                    }
+                } else {
+                    $m = DestinationMedia::find($media_id);
+                    $m->source = $request->file('media')[$key]->store('public/destination');
+                    $m->destination_id = $destination->id;
+                    $m->save();
+                }
+            } else {
+                if (!empty($request->file('media')[$key])) {
+                    $m = new DestinationMedia();
+                    $m->source =  $request->file('media')[$key]->store('public/destination');
+                    $m->destination_id = $destination->id;
+                    $m->save();
+                }
+            }
         }
 
         return redirect('destination')->withSuccess('success');

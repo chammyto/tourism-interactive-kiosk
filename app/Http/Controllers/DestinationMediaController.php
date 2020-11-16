@@ -78,8 +78,9 @@ class DestinationMediaController extends Controller
      * @param  \App\DestinationMedia  $destinationMedia
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DestinationMedia $destinationMedia)
+    public function destroy($id)
     {
         //
+
     }
 }

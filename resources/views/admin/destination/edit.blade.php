@@ -107,27 +107,42 @@
 							</div>
 						</div>
 						<div class="row">
-							@php
-							$index = 1
-							@endphp
+
 							@foreach($destination->media as $media)
 							<div class="form-group col-md-4">
-								<img id="preview{{$index}}" src="{{ Storage::url($media->source ) }}" alt="your image" width="100%" height="264" style="border: 1px solid #212121" />
-								<div class="row">
-									<input type="file" name="media[]" id="media{{$index}}" class="col-md-10" value="{{ $media->source}}" placeholder="Destination media">
-									<div class="btn btn-danger remove">X</div>
-								</div>
+								<input type="hidden" name="media_id[]" class="col-md-10  media" value="{{ $media->id}}" placeholder="Destination media">
 
+								<img class="preview" src="{{ Storage::url($media->source ) }}" alt="your image" width="100%" height="264" style="border: 1px solid #212121" />
+								@if($media->source)
+								<div>
+									<div class="btn btn-danger remove col-md-12">Remove</div>
+
+								</div>
+								@else
+								<input type="file" name="media[]" class="col-md-10  media" value="{{ $media->source}}" placeholder="Destination media">
+								@endif
 								@if($errors->has('image'))
 								<span class="invalid-feedback" role="alert">
 									<strong>{{ $errors->first('image') }}</strong>
 								</span>
 								@endif
 							</div>
-							@php
-							$index++
-							@endphp
 							@endforeach
+
+							@for($i = 0; $i < 3- count($destination->media); $i++) <div class="form-group col-md-4">
+									<input type="hidden" name="media_id[]" class="col-md-10  media" value="0" placeholder="Destination media">
+
+									<img class="preview" src="{{ asset('img/placeholder3.png')}}" alt="your image" width="100%" height="264" style="border: 1px solid #212121" />
+									<input type="file" name="media[]" class="col-md-10  media" placeholder="Destination media">
+									@if($errors->has('image'))
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $errors->first('image') }}</strong>
+									</span>
+									@endif
+								</div>
+								@endfor
+
+
 						</div>
 
 						<button type="submit" class="btn btn-primary">Save</button>
@@ -186,9 +201,7 @@
 <script>
 	jQuery(document).ready(function($) {
 
-		$(document).on('click', '.remove', () => {
-			$(this).parent().parent().html('<p></p>')
-		})
+
 
 		function readURL(input) {
 			if (input.files && input.files[0]) {
@@ -206,40 +219,28 @@
 			readURL(this)
 		})
 	})
-	$("#media1").change(function() {
-		if (this.files && this.files[0]) {
+
+	$(document).on('change', '.media', (event) => {
+		if (event.target.files && event.target.files[0]) {
 			var reader = new FileReader()
 
 			reader.onload = function(e) {
-				$('#preview1').attr('src', e.target.result)
+				$(event.target).parent().find('.preview').attr('src', e.target.result)
 			}
 
-			reader.readAsDataURL(this.files[0])
+			reader.readAsDataURL(event.target.files[0])
 		}
 	})
 
-	$("#media2").change(function() {
-		if (this.files && this.files[0]) {
-			var reader = new FileReader()
+	$(document).on('click', '.remove', (event) => {
+		$(event.target).parent().parent().find('.preview').attr('src', "{{ asset('img/placeholder3.png')}}")
 
-			reader.onload = function(e) {
-				$('#preview2').attr('src', e.target.result)
-			}
+		$(event.target).parent().html(`
+			<input type="file" name="media[]" class="col-md-10  media" value="" placeholder="Destination media">
+			<input type="hidden" name="media_deleted[]" class="col-md-10  media" value="true" placeholder="Destination media">
+			`)
 
-			reader.readAsDataURL(this.files[0])
-		}
-	})
 
-	$("#media3").change(function() {
-		if (this.files && this.files[0]) {
-			var reader = new FileReader()
-
-			reader.onload = function(e) {
-				$('#preview3').attr('src', e.target.result)
-			}
-
-			reader.readAsDataURL(this.files[0])
-		}
 	})
 </script>
 @endsection
