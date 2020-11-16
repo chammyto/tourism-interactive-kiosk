@@ -1,14 +1,14 @@
 @extends('admin.template.app')
 
 @section('content')
-<div class="container-fluid mt--7 mb-7">
+<div class="container-fluid mt--9 mb-7">
 	<!-- Table -->
 	<div class="row">
 		<div class="col">
 			<div class="card shadow">
 				<div class="card-header border-0">
 					<h3 class="mb-0 d-flex">
-						Destinations
+						Add Tourist Spot
 					</h3>
 				</div>
 				<div class="card-body">
@@ -28,7 +28,7 @@
 								</div>
 								<div class="form-group">
 									<label>Name</label>
-									<input type="name" name="name" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" value="{{ old('name') }}" placeholder="Category name">
+									<input type="name" name="name" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" value="{{ old('name') }}" placeholder="Tourist spot name">
 									@if($errors->has('name'))
 									<span class="invalid-feedback" role="alert">
 										<strong>{{ $errors->first('name') }}</strong>
@@ -48,7 +48,7 @@
 								<div class="form-group">
 									<label>Category</label>
 									<select name="category" class="custom-select" required>
-										<option value="" selected disabled>Select category</option>
+										<option value="" selected disabled>Select</option>
 										@foreach($categories as $category)
 										<option value="{{ $category->id }}">{{ $category->name }}</option>
 										@endforeach
@@ -62,7 +62,7 @@
 										<div class="form-group">
 											<label>Location (Town)</label>
 											<select name="town" id="town" class="form-control">
-												<option value="">Select Town</option>
+												<option value="">Select</option>
 												@foreach($towns as $town)
 												<option value="{{$town}}" {{ old('town') == $town ? 'selected':'' }}>{{$town}}</option>
 												@endforeach

@@ -1,14 +1,14 @@
 @extends('admin.template.app')
 
 @section('content')
-<div class="container-fluid mt--7 mb--7">
+<div class="container-fluid mt--9 mb--7">
 	<div class="row">
 		<div class="col">
 
 			<div class="card shadow">
 				<div class="card-header border-0">
 					<h3 class="mb-0 d-flex justify-content-center align-items-center">
-						Destinations
+						Tourist Spots
 						<a href="{{ url('destination/create') }}" type="button" class="btn btn-primary ml-auto">Add +</a>
 					</h3>
 				</div>

@@ -1,14 +1,14 @@
 @extends('admin.template.app')
 
 @section('content')
-<div class="container-fluid mt--7 mb--7">
+<div class="container-fluid mt--9 mb--7">
       <!-- Table -->
       <div class="row">
         <div class="col">
           <div class="card shadow">
             <div class="card-header border-0">
               	<h3 class="mb-0 d-flex">
-              		Categories 
+              		Add a category 
 				</h3>
             </div>
             <div class="card-body">
@@ -19,7 +19,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<img id="preview" src="{{ asset('img/placeholder3.png')}}" alt="your image" width="50%" height="50%" style="border: 1px solid #212121"/>
-								<input type="file" name="image" id="image" class="col-md-6 form-control {{ $errors->has('image') ? ' is-invalid' : '' }}" value="{{ old('image') }}" placeholder="Category image">
+								<input type="file" name="image" id="image" class="col-md-6 form-control {{ $errors->has('image') ? ' is-invalid' : '' }}" value="{{ old('image') }}" placeholder="Destination image">
 								@if($errors->has('image'))
 									<span class="invalid-feedback" role="alert">
 										<strong>{{ $errors->first('image') }}</strong>
@@ -28,7 +28,7 @@
 							</div>
 							<div class="form-group">
 								<label>Name</label>
-								<input type="name" name="name" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" value="{{ old('name') }}" placeholder="Category name">
+								<input type="name" name="name" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" value="{{ old('name') }}" placeholder="Destination name">
 								@if($errors->has('name'))
 									<span class="invalid-feedback" role="alert">
 										<strong>{{ $errors->first('name') }}</strong>
