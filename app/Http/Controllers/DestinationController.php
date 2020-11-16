@@ -60,6 +60,8 @@ class DestinationController extends Controller
         $destination->street = request('street');
         $destination->lat = request('lat');
         $destination->lng = request('lng');
+        $destination->save();
+
 
         foreach ($request->file('media') as $media) {
             $m = new DestinationMedia();
@@ -68,7 +70,6 @@ class DestinationController extends Controller
             $m->save();
         }
 
-        $destination->save();
 
         return redirect('destination')->withSuccess('success');
     }
