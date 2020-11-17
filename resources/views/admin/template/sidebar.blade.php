@@ -13,7 +13,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link " href="{{ url('destination') }}">
-              <i class="ni ni-pin-3 text-orange"></i> Destinations
+              <i class="ni ni-pin-3 text-orange"></i> Tourist Spots
             </a>
           </li>
           <li class="nav-item">

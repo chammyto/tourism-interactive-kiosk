@@ -4,15 +4,15 @@
     
     <div class="container h-100 pt-5">
         <div class="row">
-            <div class="col-md-12">
+          <!--  <div class="col-md-12">
                 <h2 class="mb-5 font-weight-bold righteous text-white">Where do you want to go?</h2> 
-            </div> 
+            </div>  -->
 
              <div class="col-md-12 mb-4"> 
                 <nav aria-label="breadcrumb"> 
 
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item font-weight-bold alata"><a href="{{url('menu')}}"> <i class="fa fa-cubes"></i>Menu</a></li> 
+                    <li class="breadcrumb-item font-weight-bold alata"><a href="{{url('menu')}}"> <i class="fa fa-cubes"></i>Home</a></li> 
 
                     <li class="breadcrumb-item font-weight-bold alata"><a href="javascript:history.back()"> <i class="fa fa-cubes"></i>Categories</a></li> 
 

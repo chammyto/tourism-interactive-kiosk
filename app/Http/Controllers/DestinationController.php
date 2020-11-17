@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Destination;
+use App\DestinationMedia;
 use App\Notifications\UserNotification;
 use Illuminate\Http\Request;
 
@@ -60,8 +61,14 @@ class DestinationController extends Controller
         $destination->street = request('street');
         $destination->lat = request('lat');
         $destination->lng = request('lng');
-
         $destination->save();
+
+        foreach ($request->file('media') as $media) {
+            $m = new DestinationMedia();
+            $m->source = $media->store('public/destination');
+            $m->destination_id = $destination->id;
+            $m->save();
+        }
 
         return redirect('destination')->withSuccess('success');
     }
@@ -86,8 +93,8 @@ class DestinationController extends Controller
     public function edit($id)
     {
         //
-        $destination = Destination::with('category')->find($id);
-        $categories = Category::all();
+        $destination = Destination::with('media')->with('category')->find($id);
+        $categories = Category::get();
         $towns = ['Alburquerque', 'Alicia', 'Anda', 'Antequera', 'Baclayon', 'Balilihan', 'Batuan', 'Bilar', 'Buenavista', 'Calape', 'Candijay', 'Carmen', 'Catigbian', 'Clarin', 'Corella', 'Cortes', 'Dagohoy', 'Danao', 'Dauis', 'Dimiao', 'Duero', 'Garcia Hernandez', 'Guindulman', 'Inabanga', 'Jagna', 'Getafe', 'Lila', 'Loay', 'Loboc', 'Loon', 'Mabini', 'Maribojoc', 'Panglao', 'Pilar', 'Pres. Carlos P. Garcia (Pitogo)', 'Sagbayan (Borja)', 'San Isidro', 'San Miguel', 'Sevilla', 'Sierra Bullones', 'Sikatuna', 'Tagbilaran City', 'Talibon', 'Trinidad', 'Tubigon', 'Ubay', 'Valencia', 'Bien Unido'];
 
         return view('admin.destination.edit', compact('destination', 'categories', 'towns'));
@@ -100,7 +107,7 @@ class DestinationController extends Controller
      * @param  \App\Destination  $destination
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update(Request $request, $id)
     {
         //
         $validation = request()->validate([
@@ -124,6 +131,29 @@ class DestinationController extends Controller
         $destination->lat = request('lat');
         $destination->lng = request('lng');
         $destination->save();
+
+        foreach ($request->media_id as $key => $media_id) {
+            if ($media_id != 0) {
+                if (empty($request->file('media')[$key])) {
+                    if (!empty($request->media_deleted[$key])) {
+                        $m = DestinationMedia::find($media_id);
+                        $m->delete();
+                    }
+                } else {
+                    $m = DestinationMedia::find($media_id);
+                    $m->source = $request->file('media')[$key]->store('public/destination');
+                    $m->destination_id = $destination->id;
+                    $m->save();
+                }
+            } else {
+                if (!empty($request->file('media')[$key])) {
+                    $m = new DestinationMedia();
+                    $m->source = $request->file('media')[$key]->store('public/destination');
+                    $m->destination_id = $destination->id;
+                    $m->save();
+                }
+            }
+        }
 
         return redirect('destination')->withSuccess('success');
     }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\DestinationMedia;
+use App\Visitor;
 use Illuminate\Http\Request;
 
-class DestinationMediaController extends Controller
+class VisitorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,15 +36,21 @@ class DestinationMediaController extends Controller
     public function store(Request $request)
     {
         //
+        $visitor = new Visitor();
+        $visitor->save();
+
+        return response()->json([
+            'succes' => true
+        ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\DestinationMedia  $destinationMedia
+     * @param  \App\Visitor  $visitor
      * @return \Illuminate\Http\Response
      */
-    public function show(DestinationMedia $destinationMedia)
+    public function show(Visitor $visitor)
     {
         //
     }
@@ -52,10 +58,10 @@ class DestinationMediaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\DestinationMedia  $destinationMedia
+     * @param  \App\Visitor  $visitor
      * @return \Illuminate\Http\Response
      */
-    public function edit(DestinationMedia $destinationMedia)
+    public function edit(Visitor $visitor)
     {
         //
     }
@@ -64,10 +70,10 @@ class DestinationMediaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\DestinationMedia  $destinationMedia
+     * @param  \App\Visitor  $visitor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DestinationMedia $destinationMedia)
+    public function update(Request $request, Visitor $visitor)
     {
         //
     }
@@ -75,12 +81,11 @@ class DestinationMediaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\DestinationMedia  $destinationMedia
+     * @param  \App\Visitor  $visitor
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Visitor $visitor)
     {
         //
-
     }
 }

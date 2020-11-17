@@ -72,9 +72,13 @@ class InfoController extends Controller
      * @param  \App\Info  $info
      * @return \Illuminate\Http\Response
      */
-    public function edit(Info $info)
+    public function edit($id)
     {
         //
+
+        $info = Info::find($id);
+
+        return view('admin.info.edit', compact('info'));
     }
 
     /**
@@ -88,10 +92,11 @@ class InfoController extends Controller
     {
         //
         $info = Info::find($id);
+        $info->title = request('title');
         $info->description = request('description');
         $info->save();
 
-        return redirect()->back()->withSuccess('success');
+        return redirect('info')->withSuccess('success');
     }
 
     /**
@@ -100,8 +105,13 @@ class InfoController extends Controller
      * @param  \App\Info  $info
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Info $info)
+    public function destroy($id)
     {
         //
+
+        $info = Info::find($id);
+        $info->delete();
+
+        return redirect('info')->withDelete('success');
     }
 }

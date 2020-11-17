@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGuestDataTable extends Migration
+class CreateVisitorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateGuestDataTable extends Migration
      */
     public function up()
     {
-        Schema::create('guest_data', function (Blueprint $table) {
+        Schema::create('visitors', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('email');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ class CreateGuestDataTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('guest_data');
+        Schema::dropIfExists('visitors');
     }
 }

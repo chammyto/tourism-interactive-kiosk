@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGuestDataTable extends Migration
+class AddSourceToDestinationMedia extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateGuestDataTable extends Migration
      */
     public function up()
     {
-        Schema::create('guest_data', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('email');
-            $table->timestamps();
+        Schema::table('destination_media', function (Blueprint $table) {
+            //
+            $table->integer('destination_id')->default(0);
+            $table->string('source');
         });
     }
 
@@ -27,6 +27,8 @@ class CreateGuestDataTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('guest_data');
+        Schema::table('destination_media', function (Blueprint $table) {
+            //
+        });
     }
 }

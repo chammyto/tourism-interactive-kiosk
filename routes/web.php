@@ -32,12 +32,10 @@ Auth::routes();
 Route::post('send-location/{id}', 'DestinationController@sendLocation');
 
 
-
+Route::resource('visitor', 'VisitorController');
 
 Route::middleware('auth')->group(function () {
-	Route::get('/admin', function () {
-		return view('admin.home');
-	});
+	Route::get('/admin', 'HomeController@admin');
 	Route::resource('category', 'CategoryController');
 	Route::resource('destination', 'DestinationController');
 	Route::resource('info', 'InfoController');
