@@ -20,7 +20,6 @@ class UserNotification extends Notification
     {
         //
         $this->message = $message;
-
     }
 
     /**
@@ -43,8 +42,8 @@ class UserNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->line($this->message);
-
+            ->line($this->message)
+            ->line('Thank you for using our application!');
     }
 
     /**
