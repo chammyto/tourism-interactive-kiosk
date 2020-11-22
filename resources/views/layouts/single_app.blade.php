@@ -29,6 +29,8 @@
         #map {
             width: 100%;
             height: 600px;
+            border: 1px solid white;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -36,7 +38,7 @@
 <body style="background: url(/img/background.jpg) center center no-repeat;
   background-size: cover; background-attachment: fixed">
     <div id="">
-        <main class="py-4 " style="height: 90vh">
+        <main class="py--4 " style="height: 90vh">
             @yield('content')
         </main>
     </div>

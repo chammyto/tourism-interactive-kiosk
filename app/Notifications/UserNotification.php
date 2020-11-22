@@ -43,7 +43,7 @@ class UserNotification extends Notification
     {
         return (new MailMessage)
             ->line($this->message)
-            ->line('Thank you for using our application!');
+            ->line('Please click the above link to view in GOOGLE MAPS. Enjoy your stay here in Bohol and God Bless!');
     }
 
     /**

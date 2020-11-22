@@ -25,17 +25,16 @@
                 <h2 class="my-3 font-weight-bold righteous text-white">About BOHOL</h2> 
                 @foreach($infos as $info)
                 <div class="my-4 ">
-                    <h3 class="font-weight-bold text-white">{{ $info->title }}</h3>
-                    
-                </div>
-                <div class="col-md-12">
-                      <h6 class="text-white">  {!! $info->description !!} </h6> 
+                    <div class="jumbotron" style="background-color: rgba(36,143,143, .4); border-radius: 5px; border: 1px solid white;">
+                        <h3 class="font-weight-bold text-white">{{ $info->title }}</h3>                                
+                        <div class="col-md-12">
+                        <h6 class="text-white">  {!! $info->description !!} </h6> 
                     </div>
-
-
-                @endforeach 
+                </div>
             </div>
-
+                @endforeach 
+               
+            </div>
             
         </div>
     </div>

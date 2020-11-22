@@ -23,21 +23,20 @@
 
 
 
-
-
         <div class="col-md-12 mb-5">
 
-            <img src="{{ Storage::url($place->image ) }}" height="742" class="d-block w-100 mb-5" alt="...">
+            <img src="{{ Storage::url($place->image ) }}" height="600" class="d-block w-100 mb-5" alt="..." style="border: 1px solid white; border-radius: 5px;">
+            <div class="jumbotron" style="border: 1px solid white; background-color: rgba(36,143,143, .4); border-radius:5px;">
             <h2 class="mb-3 font-weight-bold righteous text-white">Address</h2>
             <p class="mt-3  text-white">{{ $place->street }} , {{ $place->town }}</p>
             <h2 class="mb-3 font-weight-bold righteous  text-white">Description</h2>
             <p class="mt-3  text-white">{{ $place->description }}</p>
-
+            </div>
 
         </div>
 
         <div class="col-md-12 mb-5">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="border: 1px solid white; border-radius:5px;">
                 <ol class="carousel-indicators">
                     @foreach($place->media as $key=>$media)
                     <li data-target="#carouselExampleIndicators" data-slide-to="{{$key}}"></li>
@@ -50,7 +49,7 @@
                     @endphp
                     @foreach($place->media as $media)
                     <div class="carousel-item {{ $index == 0 ? 'active' : ''}}">
-                        <img src="{{ Storage::url($media->source ) }}" height="742" class="d-block w-100" alt="...">
+                        <img src="{{ Storage::url($media->source ) }}" height="600" class="d-block w-100" alt="...">
                     </div>
                     @php
                     $index ++;
@@ -78,7 +77,7 @@
             </div>
             @endif
             <h2 class="mb-3 font-weight-bold righteous d-flex">
-                <span class=' text-white'>Location </span>
+                <span class=' text-white'> Map </span>
                 <input type="hidden" id="lat" name="lat" value="{{ $place->lat }}">
                 <input type="hidden" id="lng" name="lng" value="{{ $place->lng }}">
                 <div class="btn btn-success ml-auto" data-toggle="modal" data-target="#sendLocation"><i class="fa fa-send"></i> Send Location</div>
