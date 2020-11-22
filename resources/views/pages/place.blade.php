@@ -102,7 +102,7 @@
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Email:</label>
-                        <input type="text" name='email' class="form-control" id="email">
+                        <input type="email" name='email' required class="form-control" id="email">
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                 </form>
