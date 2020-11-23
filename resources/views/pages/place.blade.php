@@ -4,7 +4,7 @@
 <div class="container h-100 pt-5">
     <div class="row">
         <div class="col-md-12 mt--7">
-            <h2 class="mb-4 font-weight-bold righteous text-white">{{ $place->name }}</h2>
+            <h2 class="mb-4 font-weight-bold righteous text-white notranslate">{{ $place->name }}</h2>
         </div>
 
 
@@ -16,7 +16,7 @@
                     <li class="breadcrumb-item font-weight-bold alata"><a href="{{url('categories')}}"> <i class="fa fa-cubes"></i>Categories</a></li>
                   <!--  <li class="breadcrumb-item font-weight-bold alata"><a href="javascript:history.back(); javascript:history.back()"> <i class="fa fa-cubes"></i>Categories</a></li> -->
                     <li class="breadcrumb-item font-weight-bold alata"><a href="javascript:history.back()"> <i class="fa fa-car"></i>Destinations</a></li>
-                    <li class="breadcrumb-item font-weight-bold alata active">{{$place->name}}</li>
+                    <li class="breadcrumb-item font-weight-bold alata active notranslate">{{$place->name}}</li>
                 </ol>
             </nav>
         </div>
