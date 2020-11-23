@@ -156,29 +156,5 @@
         $('#locationForm').submit()
     })
 </script>
-
-<script type="text/javascript">
-        function idleTime(){
-            var time;
-            window.onload = resetTimer;
-            window.onmousemove = resetTimer;
-            window.onmousedown = resetTimer;
-            window.ontouchstart = resetTimer;
-            window.onclick = resetTimer;
-            window.onkeydown = resetTimer;
-            window.addEventListener('scroll',resetTimer, true);
-
-            function backToStartPage(){
-              //  window.location.href = "{{ url('welcome')}}";
-                window.location.href = "/";
-            }
-
-            function resetTimer(){
-                clearTimeout(time);
-                time = setTimeout(backToStartPage, 60000);
-            }
-        }
-        idleTime();
-    </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-YdXs7ltaM7obqfWCFhiY32DMo_BjeP8&callback=initMap" defer></script>
 @endsection

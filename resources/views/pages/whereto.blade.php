@@ -31,8 +31,8 @@
                         <a class="col-md-6" href="{{url('places/'.$destination->id)}}"> 
                             <div class="jumbotron my-4 alata" style="background: linear-gradient(rgba(14, 53, 15, 0.45), rgba(0, 79, 32, 0.7)), url({{ Storage::url($destination->image) }}); height: 100px;"> 
                                 <div class="container">
-                                    <h1 class="display-4 bangers notranslate">{{ $destination->name }}</h1>
-                                    <p class="lead">{{ $destination->description }}</p>
+                                    <h3 class="display-8 bangers text-white notranslate">{{ $destination->name }}</h3>
+                                  <!--  <p class="lead">{{ $destination->description }}</p> -->
                                 </div>
                             </div>
                         </a>  
@@ -43,30 +43,5 @@
 
         </div>
     </div>
-
-    <script type="text/javascript">
-        function idleTime(){
-            var time;
-            window.onload = resetTimer;
-            window.onmousemove = resetTimer;
-            window.onmousedown = resetTimer;
-            window.ontouchstart = resetTimer;
-            window.onclick = resetTimer;
-            window.onkeydown = resetTimer;
-            window.addEventListener('scroll',resetTimer, true);
-
-            function backToStartPage(){
-              //  window.location.href = "{{ url('welcome')}}";
-                window.location.href = "/";
-            }
-
-            function resetTimer(){
-                clearTimeout(time);
-                time = setTimeout(backToStartPage, 60000);
-            }
-        }
-        idleTime();
-    </script>
-
 @endsection
 

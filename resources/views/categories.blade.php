@@ -45,30 +45,5 @@
 
         </div>
     </div>
-
-    <script type="text/javascript">
-        function idleTime(){
-            var time;
-            window.onload = resetTimer;
-            window.onmousemove = resetTimer;
-            window.onmousedown = resetTimer;
-            window.ontouchstart = resetTimer;
-            window.onclick = resetTimer;
-            window.onkeydown = resetTimer;
-            window.addEventListener('scroll',resetTimer, true);
-
-            function backToStartPage(){
-              //  window.location.href = "{{ url('welcome')}}";
-                window.location.href = "/";
-            }
-
-            function resetTimer(){
-                clearTimeout(time);
-                time = setTimeout(backToStartPage, 60000);
-            }
-        }
-        idleTime();
-    </script>
-
 @endsection
 
