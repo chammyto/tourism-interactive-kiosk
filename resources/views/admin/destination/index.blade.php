@@ -44,10 +44,10 @@
 							@foreach($destinations as $destination)
 							<tr>
 								<th><img src="{{ Storage::url($destination->image)}}" width="80" height="80" /></th>
-								<td>{{ $destination->name }}</td>
-								<td>{{ $destination->description }}</td>
+								<td><textarea class="form-control" name="description" id="exampleFormControlTextarea1" cols="10" rows="3"> {{ $destination->name }} </textarea> </td>
+								<td><textarea class="form-control" name="description" id="exampleFormControlTextarea1" cols="10" rows="3"> {{ $destination->description }} </textarea> </td>
 								<td>{{ $destination->category_model ? $destination->category_model->name : '' }}</td>
-								<td>{{ $destination->street.', '.$destination->town.', Bohol' }}</td>
+								<td><textarea class="form-control" name="description" id="exampleFormControlTextarea1" cols="5" rows="3"> {{ $destination->street.', '.$destination->town.', Bohol' }} </textarea> </td>
 								<td>
 									<a href="{{ url('destination/'.$destination->id.'/edit') }}" type="button" class="btn btn-info ml-auto text-white">Edit</a>
 									<a href="javascript:;" class="btn btn-danger removeButton" type="button" class="btn btn-danger ml-auto text-white">Delete</a>
