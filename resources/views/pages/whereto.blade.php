@@ -12,9 +12,9 @@
                 <nav aria-label="breadcrumb"> 
 
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item font-weight-bold alata"><a href="{{url('menu')}}"> <i class="fa fa-cubes"></i>Home</a></li> 
+                    <li class="breadcrumb-item font-weight-bold alata"><a href="{{url('menu')}}"> <i class="fa fa-home"></i>Home</a></li> 
 
-                    <li class="breadcrumb-item font-weight-bold alata"><a href="javascript:history.back()"> <i class="fa fa-cubes"></i>Categories</a></li> 
+                    <li class="breadcrumb-item font-weight-bold alata"><a href="{{url('categories')}}"> <i class="fa fa-cubes"></i>Categories</a></li> 
 
                     <li class="breadcrumb-item font-weight-bold alata active">Destinations</li>
                 </ol>
@@ -44,4 +44,29 @@
         </div>
     </div>
 
+    <script type="text/javascript">
+        function idleTime(){
+            var time;
+            window.onload = resetTimer;
+            window.onmousemove = resetTimer;
+            window.onmousedown = resetTimer;
+            window.ontouchstart = resetTimer;
+            window.onclick = resetTimer;
+            window.onkeydown = resetTimer;
+            window.addEventListener('scroll',resetTimer, true);
+
+            function backToStartPage(){
+              //  window.location.href = "{{ url('welcome')}}";
+                window.location.href = "/";
+            }
+
+            function resetTimer(){
+                clearTimeout(time);
+                time = setTimeout(backToStartPage, 60000);
+            }
+        }
+        idleTime();
+    </script>
+
 @endsection
+

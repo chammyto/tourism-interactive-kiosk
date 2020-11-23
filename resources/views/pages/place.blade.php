@@ -3,8 +3,8 @@
 @section('content')
 <div class="container h-100 pt-5">
     <div class="row">
-        <div class="col-md-12">
-            <h2 class="mb-5 font-weight-bold righteous text-white">{{ $place->name }}</h2>
+        <div class="col-md-12 mt--7">
+            <h2 class="mb-4 font-weight-bold righteous text-white">{{ $place->name }}</h2>
         </div>
 
 
@@ -12,9 +12,10 @@
             <nav aria-label="breadcrumb">
 
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item font-weight-bold alata"><a href="{{url('menu')}}"> <i class="fa fa-cubes"></i>Menu</a></li>
-                    <li class="breadcrumb-item font-weight-bold alata"><a href="javascript:history.back(); javascript:history.back()"> <i class="fa fa-cubes"></i>Categories</a></li>
-                    <li class="breadcrumb-item font-weight-bold alata"><a href="javascript:history.back()"> <i class="fa fa-cubes"></i>Destinations</a></li>
+                    <li class="breadcrumb-item font-weight-bold alata"><a href="{{url('menu')}}"> <i class="fa fa-home"></i>Home</a></li>
+                    <li class="breadcrumb-item font-weight-bold alata"><a href="{{url('categories')}}"> <i class="fa fa-cubes"></i>Categories</a></li>
+                  <!--  <li class="breadcrumb-item font-weight-bold alata"><a href="javascript:history.back(); javascript:history.back()"> <i class="fa fa-cubes"></i>Categories</a></li> -->
+                    <li class="breadcrumb-item font-weight-bold alata"><a href="javascript:history.back()"> <i class="fa fa-car"></i>Destinations</a></li>
                     <li class="breadcrumb-item font-weight-bold alata active">{{$place->name}}</li>
                 </ol>
             </nav>
@@ -26,7 +27,7 @@
         <div class="col-md-12 mb-5">
 
             <img src="{{ Storage::url($place->image ) }}" height="600" class="d-block w-100 mb-5" alt="..." style="border: 1px solid white; border-radius: 5px;">
-            <div class="jumbotron" style="border: 1px solid white; background-color: rgba(36,143,143, .4); border-radius:5px;">
+            <div class="jumbotron" style="border: 1px solid white; background-color: rgba(0, 102, 102, .6); border-radius:5px;">
             <h2 class="mb-3 font-weight-bold righteous text-white">Address</h2>
             <p class="mt-3  text-white">{{ $place->street }} , {{ $place->town }}</p>
             <h2 class="mb-3 font-weight-bold righteous  text-white">Description</h2>
@@ -34,8 +35,8 @@
             </div>
 
         </div>
-
         <div class="col-md-12 mb-5">
+        <h2 class="mb-3 font-weight-bold righteous text-white">Spoilers</h2>
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="border: 1px solid white; border-radius:5px;">
                 <ol class="carousel-indicators">
                     @foreach($place->media as $key=>$media)
@@ -155,5 +156,29 @@
         $('#locationForm').submit()
     })
 </script>
+
+<script type="text/javascript">
+        function idleTime(){
+            var time;
+            window.onload = resetTimer;
+            window.onmousemove = resetTimer;
+            window.onmousedown = resetTimer;
+            window.ontouchstart = resetTimer;
+            window.onclick = resetTimer;
+            window.onkeydown = resetTimer;
+            window.addEventListener('scroll',resetTimer, true);
+
+            function backToStartPage(){
+              //  window.location.href = "{{ url('welcome')}}";
+                window.location.href = "/";
+            }
+
+            function resetTimer(){
+                clearTimeout(time);
+                time = setTimeout(backToStartPage, 60000);
+            }
+        }
+        idleTime();
+    </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-YdXs7ltaM7obqfWCFhiY32DMo_BjeP8&callback=initMap" defer></script>
 @endsection

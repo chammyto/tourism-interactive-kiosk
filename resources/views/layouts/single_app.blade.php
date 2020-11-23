@@ -98,6 +98,7 @@
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
 
+
     <link rel="stylesheet" type="text/css" href="{{ asset('dt/dt-1.10.18/css/datatables.bootstrap4.min.css') }}" />
 
     <script type="text/javascript" src="{{ asset('dt/dt-1.10.18/js/jquery.dataTables.min.js') }}"></script>
