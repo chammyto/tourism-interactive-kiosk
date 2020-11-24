@@ -17,11 +17,11 @@
   <!-- CSS Files -->
   <link href="{{ asset('assets/css/argon-dashboard.css?v=1.1.2') }}" rel="stylesheet" />
   <style>
-    #map{
+    #map {
       width: 100%;
       height: 400px;
     }
-  </style>  
+  </style>
 </head>
 
 <body class="">
@@ -102,9 +102,9 @@
               </button>
             </div>
           </div>
-        </div> 
+        </div>
 
-        @include('admin.template.sidebar') 
+        @include('admin.template.sidebar')
 
 
       </div>
@@ -124,9 +124,16 @@
   <script src="{{ asset('assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
   <!--   Optional JS   -->
   <!--   Argon JS   -->
-  <script src="{{ asset('assets/js/argon-dashboard.min.js?v=1.1.2')}}"></script> 
+  <script src="{{ asset('assets/js/argon-dashboard.min.js?v=1.1.2')}}"></script>
   <script type="text/javascript" src="{{ asset('js/ckeditor/ckeditor.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('dt/dt-1.10.18/js/jquery.dataTables.min.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('dt/dt-1.10.18/js/datatables.bootstrap4.min.js') }}"></script>
 
+  <script>
+    $(document).ready(() => {
+      $('#dtable').DataTable()
+    })
+  </script>
   @yield('scripts')
 </body>
 
