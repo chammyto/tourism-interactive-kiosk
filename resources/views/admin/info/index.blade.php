@@ -42,7 +42,7 @@
 							@foreach($infos as $info)
 							<tr>
 								<td>{{ $info->title }}</td>
-								<td>{!! $info->description !!}</td>
+								<td> <textarea class="form-control" name="description" id="exampleFormControlTextarea1" cols="50" rows="3"> {!! $info->description !!} </textarea> </td>
 								<td>
 									<a href="{{ url('info/'.$info->id.'/edit') }}" type="button" class="btn btn-info ml-auto text-white">Edit</a>
 									<a href="javascript:;" class="btn btn-danger removeButton" type="button" class="btn btn-danger ml-auto text-white">Delete</a>
