@@ -24,7 +24,7 @@
             <h1 class="mb-5 font-weight-bold righteous text-white notranslate">BOHOL TOURISM INFORMATION KIOSK</h1>
 
 
-            <h4 class="mb-5 font-weight-bold text-white">Where are you from?</h4>
+            <h4 class="mb-5 font-weight-bold text-white">Hello there! Where are you from?</h4>
         </div>
         
         <div class="col-md-8 mx-auto mt-2 text-center">
