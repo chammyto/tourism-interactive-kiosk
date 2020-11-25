@@ -47,14 +47,14 @@
 
     <link href="{{ asset('css/custom2.css') }}" rel="stylesheet">
 
-    <ul class="slideshow">
-  <li style="list-style: none;"><span></span></li>
-  <li style="list-style: none;"><span></span></li>
-  <li style="list-style: none;"><span></span></li>
-  <li style="list-style: none;"><span></span></li>
-  <li style="list-style: none;"><span></span></li>
-  <li style="list-style: none;"><span></span></li>
-</ul>
+        <ul class="slideshow">
+            <li style="list-style: none;"><span></span></li>
+            <li style="list-style: none;"><span></span></li>
+            <li style="list-style: none;"><span></span></li>
+            <li style="list-style: none;"><span></span></li>
+            <li style="list-style: none;"><span></span></li>
+            <li style="list-style: none;"><span></span></li>
+        </ul>
 
 
 

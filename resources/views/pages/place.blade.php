@@ -89,12 +89,12 @@
 </div>
 
 <div class="modal fade" id="sendLocation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document" style="position: center;">
         <form id="locationForm" action="{{ url('send-location/'.$place->id)}}" method="POST">
 
-            <div class="modal-content">
+            <div class="modal-content" style="background-color: rgba(0, 102, 102, .7);">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Send location to your device</h5>
+                    <h5 class="modal-title text-white   " id="exampleModalLabel">Send to your device</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -102,9 +102,9 @@
                 <div class="modal-body">
                     {{ csrf_field() }}
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Email:</label>
+                        <label for="recipient-name" class="col-form-label text-white">Email:</label>
                         <input type="email" name='email' required class="form-control" id="email">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <small id="emailHelp" class="form-text text-white">We'll never share your email with anyone else.</small>
                     </div>
                 </div>
                 <div class="modal-footer">
