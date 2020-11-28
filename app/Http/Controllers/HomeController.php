@@ -72,7 +72,7 @@ class HomeController extends Controller
         if ($request->category) {
             $destinations = Destination::where('category', $request->category)->get();
         } else {
-            $destinations = Destination::all();
+            $destinations = Destination::inRandomOrder()->get();
         }
 
         return view('pages.whereto', compact('destinations'));
