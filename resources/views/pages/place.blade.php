@@ -84,6 +84,11 @@
                 <div class="btn btn-success ml-auto" data-toggle="modal" data-target="#sendLocation"><i class="fa fa-send"></i> Send Location</div>
             </h2>
             <div id="map"></div>
+            <div class="col-md-12">
+            <div class="row justify-content-center">
+            <p class="mt-3 text-white text-center">Please drag the <i class="fa fa-2x fa-male text-warning"></i> icon to the <i class="fa fa-2x fa-map-marker text-danger"></i> of the map to see the 360 degrees view. </p>
+            </div>
+            </div>
         </div>
     </div>
 </div>
