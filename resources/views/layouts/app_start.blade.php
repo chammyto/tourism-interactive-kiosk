@@ -43,7 +43,7 @@
             }
             /* To hide translator top frame  */
             .goog-te-banner-frame{
-                display: none !important;
+               /* display: none !important; */
             }
     </style>
 </head>
