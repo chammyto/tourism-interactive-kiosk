@@ -4,7 +4,7 @@
 <div class="container h-100 pt-5">
     <div class="row">
         <div class="col-md-12 mt--7">
-            <h2 class="mb-4 font-weight-bold righteous text-white notranslate">{{ $place->name }}</h2>
+            <h2 class="mb-4 font-weight-bold righteous text-white notranslate"style="text-shadow: 2px 2px 5px black;">{{ $place->name }}</h2>
         </div>
 
 

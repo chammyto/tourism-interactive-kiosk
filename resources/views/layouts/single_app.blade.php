@@ -33,6 +33,14 @@
             border: 1px solid white;
             border-radius: 5px;
         }
+            /* To disable google translate text highlight  */
+            #goog-gt-tt, .goog-te-balloon-frame{
+                display: none !important;
+            }
+            .goog-text-highlight{
+                background: none !important;
+                box-shadow: none !important;
+            }
     </style>
 </head>
 

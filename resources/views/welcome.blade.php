@@ -29,9 +29,9 @@
         </div>
         
         <div class="col-md-8 mx-auto mt-2 text-center">
-           <!-- <div class="form-group">
-                <label class="text-white"><b>Select your language</b></label>
-            </div> -->
+            <div class="form-group">
+                <label class="text-white notranslate"><b>Select your language</b></label>
+            </div>
 
             <div class="input-group mb-5 input-group-lg">
                 <div id="google_translate_element" style="width: 100% !important"></div>
