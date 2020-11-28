@@ -41,6 +41,9 @@
                 background: none !important;
                 box-shadow: none !important;
             }
+             /* To hide translator top frame  */
+           
+            }
     </style>
 </head>
 

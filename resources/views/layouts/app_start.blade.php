@@ -41,6 +41,10 @@
                 background: none !important;
                 box-shadow: none !important;
             }
+            /* To hide translator top frame  */
+            .goog-te-banner-frame{
+                display: none !important;
+            }
     </style>
 </head>
 
