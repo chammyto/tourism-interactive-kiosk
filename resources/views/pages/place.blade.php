@@ -126,7 +126,7 @@
 
 @section('scripts')
 <script>
-    const boholCoords = {
+  /*  const boholCoords = {
         lat: 9.7011,
         lng: 124.0864
     }
@@ -135,13 +135,19 @@
         let locatorMap = new google.maps.Map(document.getElementById("map"), {
             center: boholCoords,
             zoom: 10
-        });
+        }); */
 
 
         const coords = {
             lat: parseFloat(document.getElementById("lat").value),
             lng: parseFloat(document.getElementById("lng").value)
         }
+
+        function initMap() {
+        let locatorMap = new google.maps.Map(document.getElementById("map"), {
+            center: coords,
+            zoom: 11.5
+        })
         console.log(coords)
         let locationMarker = new google.maps.Marker({
             position: coords,
