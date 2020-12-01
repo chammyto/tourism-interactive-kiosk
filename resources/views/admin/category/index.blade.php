@@ -43,7 +43,7 @@
 						<tr>
 							<th><img src="{{ Storage::url($category->image)}}" width="80" height="80" /></th>
 							<td>{{ $category->name }}</td>
-							<td><textarea class="form-control" name="description" id="exampleFormControlTextarea1" cols="50" rows="5">{{ $category->description }}</textarea></td>
+							<td><textarea readonly class="form-control" name="description" id="exampleFormControlTextarea1" cols="50" rows="5">{{ $category->description }}</textarea></td>
 							<td>
 								<a href="{{ url('category/'.$category->id.'/edit') }}" type="button" class="btn btn-info ml-auto text-white">Edit</a>
 								<div class="btn btn-danger removeButton" type="button" class="btn btn-danger ml-auto text-white">Delete</a>
