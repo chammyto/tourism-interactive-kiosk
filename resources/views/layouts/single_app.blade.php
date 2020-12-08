@@ -49,7 +49,7 @@
     </style>
 </head>
 
-<body style="background: url(/img/background.jpg) center center no-repeat;
+<body style="background: linear-gradient(to bottom, rgba(22, 19, 16, 0.1) 0%, rgba(22, 19, 16, 0.1) 100%), url(/img/background.jpg) center center no-repeat;
   background-size: cover; background-attachment: fixed">
     <div id="">
         <main class="py--4 " style="height: 90vh">
