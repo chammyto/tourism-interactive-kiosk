@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Category;
 use App\Info;
 use App\Destination;
+use App\DestinationRating;
+
 use App\Visitor;
 
 class HomeController extends Controller
@@ -54,6 +56,10 @@ class HomeController extends Controller
     {
         $place = Destination::with('media')->find($id);
 
+        $reviews = DestinationRating::where('destination_id', $id)->orderBy('created_at', 'DESC')->take(10)->get();
+
+        $place->reviews = $reviews;
+
         return view('pages.place', compact('place'));
     }
 
@@ -69,12 +75,28 @@ class HomeController extends Controller
 
     public function destinations(Request $request)
     {
-        if ($request->category) {
-            $destinations = Destination::where('category', $request->category)->get();
-        } else {
-            $destinations = Destination::all();
+        $keyword = '';
+        if($request->has('category')){
+            if ($request->keyword) {
+            $keyword = $request->keyword;
+
+                $destinations = Destination::where('category', $request->category)->where('name','like', '%'.$request->keyword.'%')->get();
+            } else {
+                $destinations = Destination::with('category')->get();
+            }
+        }else{
+            if ($request->keyword) {
+                $keyword = $request->keyword;
+                $destinations = Destination::where('name','like', '%'.$request->keyword.'%')->get();
+            } else {
+                $destinations = Destination::get();
+            }
         }
 
-        return view('pages.whereto', compact('destinations'));
+
+
+       
+
+        return view('pages.whereto', compact('destinations', 'keyword'));
     }
 }

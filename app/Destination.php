@@ -19,4 +19,8 @@ class Destination extends Model
     {
         return $this->hasMany(DestinationMedia::class);
     }
+
+    public function reviews(){
+        return $this->hasMany(DestinationRating::class);
+    }
 }

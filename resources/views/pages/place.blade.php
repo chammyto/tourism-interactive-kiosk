@@ -85,6 +85,28 @@
             </h2>
             <div id="map"></div>
         </div>
+        <div class="col-md-12 mb-5">
+        <h2 class="mb-3 font-weight-bold righteous d-flex text-white" >
+        Reviews
+        </h2>
+        
+        <form action="{{ url('review/'.$place->id)}}" method='POST' >
+            {{ csrf_field() }}
+
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1" class="text-white">Leave review</label>
+                <textarea class="form-control" name='comment' id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100px">Submit</button>
+        </form>
+
+@foreach($place->reviews as $review)
+
+<div class="form-group mt-5">
+                <textarea class="form-control" name='comment' readonly id="exampleFormControlTextarea1" rows="3">{{ $review->comment}}</textarea>
+        </div>
+@endforeach
+        
     </div>
 </div>
 

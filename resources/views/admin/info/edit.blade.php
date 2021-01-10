@@ -12,6 +12,7 @@
           </h3>
         </div>
         <div class="card-body">
+       
           <form action="{{ url('info/'.$info->id)}}" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
             <input type="hidden" name="_method" value="PATCH">

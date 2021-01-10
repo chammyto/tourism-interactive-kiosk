@@ -100,37 +100,24 @@
 
 							</div>
 						</div>
-						<div class="row">
-							<div class="form-group col-md-4">
-								<img id="preview1" src="{{ asset('img/placeholder3.png')}}" alt="your image" width="100%" height="264" style="border: 1px solid #212121" />
-								<input type="file" name="media[]" id="media1" class="" value="" placeholder="Destination media">
-								@if($errors->has('image'))
-								<span class="invalid-feedback" role="alert">
-									<strong>{{ $errors->first('image') }}</strong>
-								</span>
-								@endif
-							</div>
+						<div class="row " id="media">
+						<div class="form-group col-md-4">
+									<input type="hidden" name="media_id[]" class="col-md-10  media" value="0" placeholder="Destination media">
 
-							<div class="form-group col-md-4">
-								<img id="preview2" src="{{ asset('img/placeholder3.png')}}" alt="your image" width="100%" height="264" style="border: 1px solid #212121" />
-								<input type="file" name="media[]" id="media2" class="" value="" placeholder="Destination media">
-								@if($errors->has('image'))
-								<span class="invalid-feedback" role="alert">
-									<strong>{{ $errors->first('image') }}</strong>
-								</span>
-								@endif
-							</div>
+									<img class="preview" src="{{ asset('img/placeholder3.png')}}" alt="your image" width="100%" height="264" style="border: 1px solid #212121" />
+									<input type="file" name="media[]" class="col-md-10  media" placeholder="Destination media">
+									@if($errors->has('image'))
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $errors->first('image') }}</strong>
+									</span>
+									@endif
+								</div>
 
-							<div class="form-group col-md-4">
-								<img id="preview3" src="{{ asset('img/placeholder3.png')}}" alt="your image" width="100%" height="264" style="border: 1px solid #212121" />
-								<input type="file" name="media[]" id="media3" class="" value="" placeholder="Destination media">
-								@if($errors->has('image'))
-								<span class="invalid-feedback" role="alert">
-									<strong>{{ $errors->first('image') }}</strong>
-								</span>
-								@endif
-							</div>
+							
 
+						</div>
+						<div class="row col-md-12">
+						<button type="button" class="btn btn-accent" id="add-media">Add media</button>
 						</div>
 
 						<button type="submit" class="btn btn-primary mt-5">Save</button>
@@ -191,6 +178,20 @@
 <script>
 	jQuery(document).ready(function($) {
 
+		$('#add-media').click(() => {
+			$('#media').append(`	<div class="form-group col-md-4">
+									<input type="hidden" name="media_id[]" class="col-md-10  media" value="0" placeholder="Destination media">
+
+									<img class="preview" src="{{ asset('img/placeholder3.png')}}" alt="your image" width="100%" height="264" style="border: 1px solid #212121" />
+									<input type="file" name="media[]" class="col-md-10  media" placeholder="Destination media">
+									@if($errors->has('image'))
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $errors->first('image') }}</strong>
+									</span>
+									@endif
+								</div>`)
+		})
+
 		function readURL(input) {
 			if (input.files && input.files[0]) {
 				var reader = new FileReader()
@@ -206,42 +207,27 @@
 		$("#image").change(function() {
 			readURL(this)
 		})
+	})
 
-		$("#media1").change(function() {
-			if (this.files && this.files[0]) {
-				var reader = new FileReader()
+	$(document).on('change', '.media', (event) => {
+		if (event.target.files && event.target.files[0]) {
+			var reader = new FileReader()
 
-				reader.onload = function(e) {
-					$('#preview1').attr('src', e.target.result)
-				}
-
-				reader.readAsDataURL(this.files[0])
+			reader.onload = function(e) {
+				$(event.target).parent().find('.preview').attr('src', e.target.result)
 			}
-		})
 
-		$("#media2").change(function() {
-			if (this.files && this.files[0]) {
-				var reader = new FileReader()
+			reader.readAsDataURL(event.target.files[0])
+		}
+	})
 
-				reader.onload = function(e) {
-					$('#preview2').attr('src', e.target.result)
-				}
+	$(document).on('click', '.remove', (event) => {
+		$(event.target).parent().parent().find('.preview').attr('src', "{{ asset('img/placeholder3.png')}}")
 
-				reader.readAsDataURL(this.files[0])
-			}
-		})
-
-		$("#media3").change(function() {
-			if (this.files && this.files[0]) {
-				var reader = new FileReader()
-
-				reader.onload = function(e) {
-					$('#preview3').attr('src', e.target.result)
-				}
-
-				reader.readAsDataURL(this.files[0])
-			}
-		})
+		$(event.target).parent().html(`
+			<input type="file" name="media[]" class="col-md-10  media" value="" placeholder="Destination media">
+			<input type="hidden" name="media_deleted[]" class="col-md-10  media" value="true" placeholder="Destination media">
+			`)
 
 
 	})

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Destination;
 use App\DestinationMedia;
+use App\DestinationRating;
 use App\Notifications\UserNotification;
 use Illuminate\Http\Request;
 
@@ -193,5 +194,18 @@ class DestinationController extends Controller
         $data->notify(new UserNotification($message));
 
         return redirect()->back()->withSuccess('success');
+    }
+
+    public function review(Request $request, $id){
+        $destination = Destination::find($id);
+
+        $review = new DestinationRating();
+        $review->destination_id = $id;
+        $review->comment = $request->comment;
+        $review->save();
+
+        return redirect('places/'.$id)->withSuccessReview('success');
+
+        // return redirect()->back()->withSuccessReview('success');
     }
 }

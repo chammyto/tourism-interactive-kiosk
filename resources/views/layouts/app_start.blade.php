@@ -34,8 +34,12 @@
         }
     </style>
 </head>
+@php 
+$bg = App\Setting::where('key', 'background')->first();
 
-<body style="background: url(/img/background.jpg) center center no-repeat;
+@endphp
+
+<body style="background: url({{ $bg->value ? Storage::url($bg->value) : '/img/background.jpg' }}) center center no-repeat;
   background-size: cover; background-attachment: fixed">
     <div id="">
         <main class="py--4 " style="height: 90vh">

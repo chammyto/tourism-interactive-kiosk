@@ -34,7 +34,6 @@
 						<thead class="thead-light">
 							<tr>
 								<th scope="col">Title</th>
-								<th scope="col">Description</th>
 								<th scope="col">Actions</th>
 							</tr>
 						</thead>
@@ -42,8 +41,11 @@
 							@foreach($infos as $info)
 							<tr>
 								<td>{{ $info->title }}</td>
-								<td> <textarea class="form-control" name="description" id="exampleFormControlTextarea1" cols="50" rows="3"> {!! $info->description !!} </textarea> </td>
+								<!-- <td> <textarea class="form-control" name="description" id="exampleFormControlTextarea1" cols="50" rows="3"> {!! $info->description !!} </textarea> </td> -->
 								<td>
+								<button type="button" class="btn btn-primary previewButton" data-toggle="modal" data-target="#previewModal" data-info="{{$info}}">
+  Preview
+</button>
 									<a href="{{ url('info/'.$info->id.'/edit') }}" type="button" class="btn btn-info ml-auto text-white">Edit</a>
 									<a href="javascript:;" class="btn btn-danger removeButton" type="button" class="btn btn-danger ml-auto text-white">Delete</a>
 									<form class="removeForm" action="{{ url('info/'.$info->id) }}" method="POST">
@@ -60,6 +62,23 @@
 		</div>
 	</div>
 </div>
+
+<div class="modal fade" id="previewModal" tabindex="-1" role="dialog" aria-labelledby="previewModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="previewModalLabel">Modal title</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="previewModalDescription">
+        ...
+      </div>
+      
+    </div>
+  </div>
+</div>
 @endsection
 
 @section('scripts')
@@ -67,6 +86,15 @@
 	$(document).on('click', '.removeButton', () => {
 		const form = $(event.target).parent().find('.removeForm')
 		form.submit()
+	})
+
+	$(document).on('click', '.previewButton', () => {
+		const clickedElement = $(event.target);
+		let data = clickedElement.data('info')
+		const title = data.title
+		const info = data.description
+		$('#previewModalLabel').html(title)
+		$('#previewModalDescription').html(info)
 	})
 </script>
 @endsection

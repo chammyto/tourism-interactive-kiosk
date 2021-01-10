@@ -106,7 +106,7 @@
 
 							</div>
 						</div>
-						<div class="row">
+						<div class="row"  id="media">
 
 							@foreach($destination->media as $media)
 							<div class="form-group col-md-4">
@@ -129,23 +129,13 @@
 							</div>
 							@endforeach
 
-							@for($i = 0; $i < 3- count($destination->media); $i++) <div class="form-group col-md-4">
-									<input type="hidden" name="media_id[]" class="col-md-10  media" value="0" placeholder="Destination media">
-
-									<img class="preview" src="{{ asset('img/placeholder3.png')}}" alt="your image" width="100%" height="264" style="border: 1px solid #212121" />
-									<input type="file" name="media[]" class="col-md-10  media" placeholder="Destination media">
-									@if($errors->has('image'))
-									<span class="invalid-feedback" role="alert">
-										<strong>{{ $errors->first('image') }}</strong>
-									</span>
-									@endif
-								</div>
-								@endfor
-
+							
 
 						</div>
-
-						<button type="submit" class="btn btn-primary">Save</button>
+						<div class="row col-md-12">
+						<button type="button" class="btn btn-accent" id="add-media">Add media</button>
+						</div>
+						<button type="submit" class="btn btn-primary mt-5">Save</button>
 					</form>
 				</div>
 			</div>
@@ -201,7 +191,19 @@
 <script>
 	jQuery(document).ready(function($) {
 
+		$('#add-media').click(() => {
+			$('#media').append(`	<div class="form-group col-md-4">
+									<input type="hidden" name="media_id[]" class="col-md-10  media" value="0" placeholder="Destination media">
 
+									<img class="preview" src="{{ asset('img/placeholder3.png')}}" alt="your image" width="100%" height="264" style="border: 1px solid #212121" />
+									<input type="file" name="media[]" class="col-md-10  media" placeholder="Destination media">
+									@if($errors->has('image'))
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $errors->first('image') }}</strong>
+									</span>
+									@endif
+								</div>`)
+		})
 
 		function readURL(input) {
 			if (input.files && input.files[0]) {

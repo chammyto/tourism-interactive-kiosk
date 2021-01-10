@@ -21,6 +21,12 @@
               <i class="ni ni-chart-bar-32 text-pink"></i> Information
             </a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('settings') }}">
+              <i class="ni ni-chart-bar-32 text-pink"></i> Settings
+            </a>
+          </li>
           
 
         </ul>
