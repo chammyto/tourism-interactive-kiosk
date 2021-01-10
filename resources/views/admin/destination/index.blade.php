@@ -34,9 +34,9 @@
 							<tr>
 								<th scope="col">Image</th>
 								<th scope="col">Name</th>
-								<th scope="col">Description</th>
+							<!--	<th scope="col">Description</th> -->
 								<th scope="col">Category</th>
-								<th scope="col">Location</th>
+							<!--	<th scope="col">Location</th> -->
 								<th scope="col">Actions</th>
 							</tr>
 						</thead>
@@ -44,11 +44,14 @@
 							@foreach($destinations as $destination)
 							<tr>
 								<th><img src="{{ Storage::url($destination->image)}}" width="80" height="80" /></th>
-								<td><textarea readonly class="form-control" name="description" id="exampleFormControlTextarea1" cols="10" rows="3"> {{ $destination->name }} </textarea> </td>
-								<td><textarea readonly class="form-control" name="description" id="exampleFormControlTextarea1" cols="10" rows="3"> {{ $destination->description }} </textarea> </td>
+								<td><textarea readonly class="form-control" name="description" id="exampleFormControlTextarea1" cols="30" rows="2"> {{ $destination->name }} </textarea> </td>
+							<!--	<td><textarea readonly class="form-control" name="description" id="exampleFormControlTextarea1" cols="10" rows="3"> {{ $destination->description }} </textarea> </td> -->
 								<td>{{ $destination->category_model ? $destination->category_model->name : '' }}</td>
-								<td><textarea readonly class="form-control" name="description" id="exampleFormControlTextarea1" cols="5" rows="3"> {{ $destination->street.', '.$destination->town.', Bohol' }} </textarea> </td>
+							<!--	<td><textarea readonly class="form-control" name="description" id="exampleFormControlTextarea1" cols="5" rows="3"> {{ $destination->street.', '.$destination->town.', Bohol' }} </textarea> </td> -->
 								<td>
+								<button type="button" class="btn btn-primary previewButton" data-toggle="modal" data-target="#previewModal" data-info="{{$destination}}">
+									Preview
+									</button>
 									<a href="{{ url('destination/'.$destination->id.'/edit') }}" type="button" class="btn btn-info ml-auto text-white">Edit</a>
 									<a href="javascript:;" class="btn btn-danger removeButton" type="button" class="btn btn-danger ml-auto text-white">Delete</a>
 									<form class="removeForm" action="{{ url('destination/'.$destination->id) }}" method="POST">
@@ -65,6 +68,24 @@
 		</div>
 	</div>
 </div>
+
+
+<div class="modal fade" id="previewModal" tabindex="-1" role="dialog" aria-labelledby="previewModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="previewModalLabel">Modal title</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="previewModalDescription">
+        ...
+      </div>
+      
+    </div>
+  </div>
+</div>
 @endsection
 
 @section('scripts')
@@ -72,6 +93,16 @@
 	$(document).on('click', '.removeButton', () => {
 		const form = $(event.target).parent().find('.removeForm')
 		form.submit()
+	})
+//script inig preview sa description//
+	
+	$(document).on('click', '.previewButton', () => {
+		const clickedElement = $(event.target);
+		let data = clickedElement.data('info')
+		const title = data.name
+		const info = data.description
+		$('#previewModalLabel').html(title)
+		$('#previewModalDescription').html(info)
 	})
 </script>
 @endsection

@@ -49,14 +49,8 @@
 </head>
 @php 
 $bg = App\Setting::where('key', 'background')->first();
-
-<<<<<<< HEAD
 @endphp
-
-<body style="background: url({{ $bg->value ? Storage::url($bg->value) : '/img/background.jpg' }}) center center no-repeat;
-=======
-<body style="backgrou: url(/img/background.jpg) center center no-repeat;
->>>>>>> d13174399512e2a075f8e82cacddaf42c6b1a2a6
+<body style="background: url(/img/background.jpg) center center no-repeat;
   background-size: cover; background-attachment: fixed">
     <div id="">
         <main class="py--4 " style="height: 90vh">

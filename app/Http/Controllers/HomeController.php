@@ -56,7 +56,7 @@ class HomeController extends Controller
     {
         $place = Destination::with('media')->find($id);
 
-        $reviews = DestinationRating::where('destination_id', $id)->orderBy('created_at', 'DESC')->take(10)->get();
+        $reviews = DestinationRating::where('destination_id', $id)->inRandomOrder()->limit(6)->get();
 
         $place->reviews = $reviews;
 
@@ -89,7 +89,7 @@ class HomeController extends Controller
                 $keyword = $request->keyword;
                 $destinations = Destination::where('name','like', '%'.$request->keyword.'%')->get();
             } else {
-                $destinations = Destination::get();
+                $destinations = Destination::inRandomOrder()->get();
             }
         }
 
