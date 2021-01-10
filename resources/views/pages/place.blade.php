@@ -4,7 +4,7 @@
 <div class="container h-100 pt-5">
     <div class="row">
         <div class="col-md-12 mt--7">
-            <h2 class="mb-4 font-weight-bold righteous text-white notranslate">{{ $place->name }}</h2>
+            <h2 class="mb-4 font-weight-bold righteous text-white notranslate"style="text-shadow: 2px 2px 5px black;">{{ $place->name }}</h2>
         </div>
 
 
@@ -84,6 +84,11 @@
                 <div class="btn btn-success ml-auto" data-toggle="modal" data-target="#sendLocation"><i class="fa fa-send"></i> Send Location</div>
             </h2>
             <div id="map"></div>
+            <div class="col-md-12">
+            <div class="row justify-content-center">
+            <p class="mt-3 text-white text-center">Please drag the <i class="fa fa-2x fa-male text-warning"></i> icon to the <i class="fa fa-2x fa-map-marker text-danger"></i> of the map to see the 360 degrees view. </p>
+            </div>
+            </div>
         </div>
         <div class="col-md-12 mb-5">
         <h2 class="mb-3 font-weight-bold righteous d-flex text-white" >
@@ -111,12 +116,12 @@
 </div>
 
 <div class="modal fade" id="sendLocation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document" style="position: center;">
         <form id="locationForm" action="{{ url('send-location/'.$place->id)}}" method="POST">
 
-            <div class="modal-content">
+            <div class="modal-content" style="background-color: rgba(0, 102, 102, .7);">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Send location to your device</h5>
+                    <h5 class="modal-title text-white   " id="exampleModalLabel">Send to your device</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -124,14 +129,14 @@
                 <div class="modal-body">
                     {{ csrf_field() }}
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Email:</label>
+                        <label for="recipient-name" class="col-form-label text-white">Email:</label>
                         <input type="email" name='email' required class="form-control" id="email">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <small id="emailHelp" class="form-text text-white">We'll never share your email with anyone else.</small>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-success">Send location</button>
+                    <button type="submit" class="btn btn-success">Send</button>
                 </div>
             </div>
     </div>
@@ -143,7 +148,7 @@
 
 @section('scripts')
 <script>
-    const boholCoords = {
+  /*  const boholCoords = {
         lat: 9.7011,
         lng: 124.0864
     }
@@ -152,13 +157,19 @@
         let locatorMap = new google.maps.Map(document.getElementById("map"), {
             center: boholCoords,
             zoom: 10
-        });
+        }); */
 
 
         const coords = {
             lat: parseFloat(document.getElementById("lat").value),
             lng: parseFloat(document.getElementById("lng").value)
         }
+
+        function initMap() {
+        let locatorMap = new google.maps.Map(document.getElementById("map"), {
+            center: coords,
+            zoom: 11.5
+        })
         console.log(coords)
         let locationMarker = new google.maps.Marker({
             position: coords,

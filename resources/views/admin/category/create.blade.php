@@ -47,6 +47,7 @@
 							
 
 							<button type="submit" class="btn btn-primary">Save</button>
+							<a type="button" class="btn btn-warning"  href="{{url('category')}}">Cancel</a>
 						</div>
 						
 						

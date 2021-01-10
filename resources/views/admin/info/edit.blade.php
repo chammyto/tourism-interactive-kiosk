@@ -38,6 +38,7 @@
                   @endif
                 </div>
                 <button type="submit" class="btn btn-primary">Save</button>
+                <a type="button" class="btn btn-warning"  href="{{url('info')}}">Cancel</a>
               </div>
             </div>
           </form>

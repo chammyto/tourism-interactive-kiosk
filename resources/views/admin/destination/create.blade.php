@@ -121,6 +121,7 @@
 						</div>
 
 						<button type="submit" class="btn btn-primary mt-5">Save</button>
+						<a type="button" class="btn btn-warning mt-5"  href="{{url('destination')}}">Cancel</a>
 
 					</form>
 

@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -32,15 +33,32 @@
             border: 1px solid white;
             border-radius: 5px;
         }
+            /* To disable google translate text highlight  */
+            #goog-gt-tt, .goog-te-balloon-frame{
+                display: none !important;
+            }
+            .goog-text-highlight{
+                background: none !important;
+                box-shadow: none !important;
+            }
+             /* To hide translator top frame  */
+             .goog-te-banner-frame{
+               /* display: none !important; */
+              
+            }
     </style>
 </head>
 
+<<<<<<< HEAD
 @php 
 $bg = App\Setting::where('key', 'background')->first();
 
 @endphp
 
 <body style="background: url({{ $bg->value ? Storage::url($bg->value) : '/img/background.jpg' }}) center center no-repeat;
+=======
+<body style="background: linear-gradient(to bottom, rgba(22, 19, 16, 0.1) 0%, rgba(22, 19, 16, 0.1) 100%), url(/img/background.jpg) center center no-repeat;
+>>>>>>> d13174399512e2a075f8e82cacddaf42c6b1a2a6
   background-size: cover; background-attachment: fixed">
     <div id="">
         <main class="py--4 " style="height: 90vh">

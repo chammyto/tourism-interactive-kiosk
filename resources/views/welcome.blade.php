@@ -20,17 +20,18 @@
 <div class="container h-100 d-flex justify-content-center align-items-center">
 
     <div class="row">
+        <div class="jumbotron" style="z-index: 1; background: transparent;">
         <div class="col-md-12 text-center">
-            <h1 class="mb-5 font-weight-bold righteous text-white notranslate">BOHOL TOURISM INFORMATION KIOSK</h1>
+            <h1 class="mb-5 font-weight-bold righteous text-white notranslate" style="font-size: 35px;">BOHOL TOURISM INFORMATION KIOSK</h1>
 
 
-            <h4 class="mb-5 font-weight-bold text-white">Where are you from?</h4>
+            <h4 class="mb-5 font-weight-bold text-white" style="font-size:20px;">Hello there! Where are you from?</h4>
         </div>
         
         <div class="col-md-8 mx-auto mt-2 text-center">
-           <!-- <div class="form-group">
-                <label class="text-white"><b>Select your language</b></label>
-            </div> -->
+            <div class="form-group">
+                <label class="text-white notranslate"><b>Select your language</b></label>
+            </div>
 
             <div class="input-group mb-5 input-group-lg">
                 <div id="google_translate_element" style="width: 100% !important"></div>
@@ -41,8 +42,24 @@
                CLICK TO START
             </div>
         </div>
-    </div>
-</div>
+        </div>
+    </div> <!--End of row-->
+
+    <link href="{{ asset('css/custom2.css') }}" rel="stylesheet">
+
+        <ul class="slideshow">
+            <li style="list-style: none;"><span></span></li>
+            <li style="list-style: none;"><span></span></li>
+            <li style="list-style: none;"><span></span></li>
+            <li style="list-style: none;"><span></span></li>
+            <li style="list-style: none;"><span></span></li>
+            <li style="list-style: none;"><span></span></li>
+        </ul>
+
+
+
+
+</div> <!--End of container-->
 
 <!-- {{ url('menu') }} -->
 @endsection
