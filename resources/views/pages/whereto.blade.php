@@ -58,7 +58,7 @@
                 <div class="row" >
                     @foreach($destinations as $destination)
                         <a class="col-md-6" href="{{url('places/'.$destination->id)}}"> 
-                            <div class="jumbotron my-4 alata" style="background: linear-gradient(to bottom, rgba(22, 19, 16, 0.5) 0%, rgba(22, 19, 16, 0.8) 100%), url({{ Storage::url($destination->image) }}); height: 100px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.7); "> 
+                            <div class="jumbotron my-4 alata" style="background: linear-gradient(to bottom, rgba(22, 19, 16, 0.5) 0%, rgba(22, 19, 16, 0.8) 100%), url({{ Storage::url($destination->image) }}); height: 100px; box-shadow: 0px 0px 20px 0px rgba(225, 225, 225, 0.2), 0px 0px 20px 0px rgba(225, 225, 225, 0.7); "> 
                                 <div class="container">
                                     <h3 class="display-8 bangers text-white notranslate">{{ $destination->name }}</h3>
                                   <!--  <p class="lead">{{ $destination->description }}</p> -->

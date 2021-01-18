@@ -77,12 +77,17 @@ class HomeController extends Controller
     {
         $keyword = '';
         if($request->has('category')){
-            if ($request->keyword) {
+         /*   if ($request->keyword) {
             $keyword = $request->keyword;
 
                 $destinations = Destination::where('category', $request->category)->where('name','like', '%'.$request->keyword.'%')->get();
             } else {
                 $destinations = Destination::with('category')->get();
+            } */
+        if ($request->category) {
+                $destinations = Destination::where('category', $request->category)->get();
+            } else {
+                $destinations = Destination::all();
             }
         }else{
             if ($request->keyword) {

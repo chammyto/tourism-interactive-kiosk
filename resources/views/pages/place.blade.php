@@ -100,7 +100,7 @@
                 <label for="exampleFormControlTextarea1" class="text-white font-weight-bold">Leave a review</label>
                 <textarea class="form-control" name='comment' id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary mb-5" style="width: 100px">Submit</button>
+            <button type="submit" class="btn btn-success mb-5" style="width: 100px">Submit</button>
         </form>
 
 
