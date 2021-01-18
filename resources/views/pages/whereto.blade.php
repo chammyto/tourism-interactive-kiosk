@@ -32,7 +32,7 @@
             
 
                 <div class="form-group col-md-12" style="width: 500px">
-                    <input type="text" class="form-control col-md-12" name='keyword' value="{{ $keyword }}"  placeholder="Find destination">
+                    <input type="text" class="form-control col-md-12" name='keyword' value="{{ $keyword }}"  placeholder="Find destination" required>
                 </div>
                 <button type="submit" class="btn btn-primary" style="width: 100px">Search</button>
 

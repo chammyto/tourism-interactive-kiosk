@@ -98,17 +98,17 @@
 
             <div class="form-group">
                 <label for="exampleFormControlTextarea1" class="text-white font-weight-bold">Leave a review</label>
-                <textarea class="form-control" name='comment' id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" name='comment' id="exampleFormControlTextarea1" rows="3" required></textarea>
             </div>
             <button type="submit" class="btn btn-success mb-5" style="width: 100px">Submit</button>
         </form>
 
 
         <div class="col-md-12">   
-        <h2 class="mb-3 font-weight-bold righteous d-flex text-white" >
+        <h2 class="font-weight-bold righteous d-flex text-white" >
         Reviews
         </h2>      
-            <div class="row py-5 pl-3"  style="border: 1px solid white; background-color: rgba(0, 102, 102, .6); border-radius:5px;" >
+            <div class="row py-5" >
 @foreach($place->reviews as $review)
 
                 <div class="form-group col-md-6">
