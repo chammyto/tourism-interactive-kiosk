@@ -1,7 +1,7 @@
 @extends('admin.template.app')
 
 @section('content')
-<div class="container-fluid mt--7 mb--7">
+<div class="container-fluid mt--9 mb--7">
 	<div class="row">
 		<div class="col">
 
