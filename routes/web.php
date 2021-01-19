@@ -15,6 +15,8 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/menu', 'HomeController@menu');
 Route::get('/about-bohol', 'HomeController@about');
+Route::get('/about-bohol/{id}', 'HomeController@information');
+
 Route::get('/places/{id}', 'HomeController@place');
 
 

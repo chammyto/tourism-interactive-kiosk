@@ -52,6 +52,12 @@ class HomeController extends Controller
         return view('pages.about', compact('infos'));
     }
 
+    public function information($id)
+    {
+        $info = Info::find($id);
+        return view('pages.info', compact('info'));
+    }
+
     public function place($id)
     {
         $place = Destination::with('media')->find($id);
@@ -75,14 +81,15 @@ class HomeController extends Controller
 
     public function destinations(Request $request)
     {
+
         $keyword = '';
         if($request->has('category')){
             if ($request->keyword) {
             $keyword = $request->keyword;
 
-                $destinations = Destination::where('category', $request->category)->where('name','like', '%'.$request->keyword.'%')->get();
+                $destinations = Destination::with('category')->where('category', $request->category)->where('name','like', '%'.$request->keyword.'%')->get();
             } else {
-                $destinations = Destination::with('category')->get();
+                $destinations = Destination::with('category')->where('category', $request->category)->get();
             }
         }else{
             if ($request->keyword) {

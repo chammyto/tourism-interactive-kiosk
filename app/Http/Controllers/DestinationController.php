@@ -64,12 +64,15 @@ class DestinationController extends Controller
         $destination->lng = request('lng');
         $destination->save();
 
-        foreach ($request->file('media') as $media) {
-            $m = new DestinationMedia();
-            $m->source = $media->store('public/destination');
-            $m->destination_id = $destination->id;
-            $m->save();
+        if($request->file('media')){
+            foreach ($request->file('media') as $media) {
+                $m = new DestinationMedia();
+                $m->source = $media->store('public/destination');
+                $m->destination_id = $destination->id;
+                $m->save();
+            }
         }
+       
 
         return redirect('destination')->withSuccess('success');
     }
