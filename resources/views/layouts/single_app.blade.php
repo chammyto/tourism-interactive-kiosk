@@ -30,8 +30,7 @@
         #map {
             width: 100%;
             height: 600px;
-            border: 1px solid white;
-            border-radius: 5px;
+            
         }
             /* To disable google translate text highlight  */
             #goog-gt-tt, .goog-te-balloon-frame{

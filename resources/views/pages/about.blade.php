@@ -21,17 +21,22 @@
             </div>  -->
 
             <div class="col-md-12 mb-5">
-                <h2 class="my-3 font-weight-bold righteous text-white">About BOHOL</h2> 
+               <!-- <h2 class="my-3 font-weight-bold righteous text-white">About BOHOL</h2> -->
+                <div class="row">
                 @foreach($infos as $info)
-                <a href="{{ url('/about-bohol/'. $info->id) }}" class="my-4 ">
-                    <div class="p-4" style="background-color: rgba(0, 102, 102, .6); border-radius: 5px; border: 1px solid white;">
-                        <h3 class="font-weight-bold text-white">{{ $info->title }}</h3>                                
+                <a href="{{ url('/about-bohol/'. $info->id) }}" class="col-md-6">
+                    <div class="jumbotron my-4 alata" style="background: linear-gradient(to bottom, rgba(22, 19, 16, 0.5) 0%, rgba(22, 19, 16, 0.5) 100%), url('/img/choco.jpg'); height: 100px; box-shadow: 0px 0px 20px 0px rgba(225, 225, 225, 0.2), 0px 0px 20px 0px rgba(225, 225, 225, 0.7); "> 
+                                <div class="container">
+                                    <h3 class="display-8 bangers text-white notranslate">{{ $info->title }}</h3>
+                                 
+                                </div>
                     </div>
                 </a>
                 
-            </div>
+           
                 @endforeach 
-               
+                </div>
+                </div>    
             </div>
             
         </div>

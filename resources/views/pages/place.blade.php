@@ -26,8 +26,8 @@
 
         <div class="col-md-12 mb-5">
 
-            <img src="{{ Storage::url($place->image ) }}" height="600" class="d-block w-100 mb-5" alt="..." style="border: 1px solid white; border-radius: 5px;">
-            <div class="jumbotron" style="border: 1px solid white; background-color: rgba(0, 102, 102, .6); border-radius:5px;">
+            <img src="{{ Storage::url($place->image ) }}" height="600" class="d-block w-100 mb-5" alt="..." style="border: .5px solid white; border-radius: 5px; box-shadow: 0px 0px 10px 0px rgba(225, 225, 225, 0.2), 0px 0px 20px 0px rgba(225, 225, 225, 0.7);">
+            <div class="jumbotron" style="border: 0.5px solid white; background: linear-gradient(to bottom, rgba(22, 19, 16, 0.5) 0%, rgba(22, 19, 16, 0.5) 100%), url('/img/choco.jpg'); border-radius: 5px; box-shadow: 0px 0px 10px 0px rgba(225, 225, 225, 0.2), 0px 0px 20px 0px rgba(225, 225, 225, 0.7);">
             <h2 class="mb-3 font-weight-bold righteous text-white">Address</h2>
             <p class="mt-3  text-white">{{ $place->street }} , {{ $place->town }}</p>
             <h2 class="mb-3 font-weight-bold righteous  text-white">Description</h2>
@@ -37,7 +37,7 @@
         </div>
         <div class="col-md-12 mb-5">
         <h2 class="mb-3 font-weight-bold righteous text-white">Spoilers</h2>
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="border: 1px solid white; border-radius:5px;">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="border: 1px solid white; border-radius:5px;  box-shadow: 0px 0px 10px 0px rgba(225, 225, 225, 0.2), 0px 0px 20px 0px rgba(225, 225, 225, 0.7);">
                 <ol class="carousel-indicators">
                     @foreach($place->media as $key=>$media)
                     <li data-target="#carouselExampleIndicators" data-slide-to="{{$key}}"></li>
@@ -83,7 +83,7 @@
                 <input type="hidden" id="lng" name="lng" value="{{ $place->lng }}">
                 <div class="btn btn-success ml-auto" data-toggle="modal" data-target="#sendLocation"><i class="fa fa-send"></i> Send Location</div>
             </h2>
-            <div id="map"></div>
+            <div id="map" style=" box-shadow: 0px 0px 10px 0px rgba(225, 225, 225, 0.2), 0px 0px 20px 0px rgba(225, 225, 225, 0.7); border-radius: 5px;"></div>
             <div class="col-md-12">
             <div class="row justify-content-center">
             <p class="mt-3 text-white text-center">Please drag the <i class="fa fa-2x fa-male text-warning"></i> icon to the <i class="fa fa-2x fa-map-marker text-danger"></i> of the map to see the 360 degrees view. </p>
