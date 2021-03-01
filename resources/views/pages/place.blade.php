@@ -37,10 +37,10 @@
         </div>
         <div class="col-md-12 mb-5">
         <h2 class="mb-3 font-weight-bold righteous text-white">Spoilers</h2>
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="border: 1px solid white; border-radius:5px;  box-shadow: 0px 0px 10px 0px rgba(225, 225, 225, 0.2), 0px 0px 20px 0px rgba(225, 225, 225, 0.7);">
+            <div id="carouselExampleInterval" class="carousel slide carousel-fade" data-interval="10000" data-ride="carousel" style="border: 1px solid white; border-radius:5px;  box-shadow: 0px 0px 10px 0px rgba(225, 225, 225, 0.2), 0px 0px 20px 0px rgba(225, 225, 225, 0.7);">
                 <ol class="carousel-indicators">
                     @foreach($place->media as $key=>$media)
-                    <li data-target="#carouselExampleIndicators" data-slide-to="{{$key}}"></li>
+                    <li data-target="#carouselExampleInterval" data-slide-to="{{$key}}"></li>
                     @endforeach
 
                 </ol>
@@ -49,7 +49,7 @@
                     $index = 0;
                     @endphp
                     @foreach($place->media as $media)
-                    <div class="carousel-item {{ $index == 0 ? 'active' : ''}}">
+                    <div class="carousel-item {{ $index === 0 ? 'active' : ''}}"  data-interval="10000">
                         <img src="{{ Storage::url($media->source ) }}" height="600" class="d-block w-100" alt="...">
                     </div>
                     @php
@@ -57,11 +57,11 @@
                     @endphp
                     @endforeach
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
@@ -193,7 +193,7 @@
 
     $('#send').click(() => {
         $('#locationForm').submit()
-    })
+    });
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-YdXs7ltaM7obqfWCFhiY32DMo_BjeP8&callback=initMap" defer></script>
 @endsection

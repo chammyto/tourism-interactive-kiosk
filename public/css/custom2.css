@@ -141,7 +141,7 @@ a{
   line-height: 200px;
 	color: rgba(255,255,255, 0.8);
 }
-.slideshow li:nth-child(1) span { background-image: url(/img/beach.jpg) }
+.slideshow li:nth-child(1) span { background-image: url(/img/beach.jp) }
 .slideshow li:nth-child(2) span {
     background-image: url(/img/choco.jpg);
     -webkit-animation-delay: 12s;
@@ -152,70 +152,70 @@ a{
 }
 .slideshow li:nth-child(3) span {
     background-image: url(/img/river.jpg);
-    -webkit-animation-delay: 24s;
-    -moz-animation-delay: 24s;
-    -o-animation-delay: 24s;
-    -ms-animation-delay: 24s;
-    animation-delay: 24s;
+    -webkit-animation-delay: 36s;
+    -moz-animation-delay: 36s;
+    -o-animation-delay: 36s;
+    -ms-animation-delay: 36s;
+    animation-delay: 36s;
 }
 .slideshow li:nth-child(4) span {
     background-image: url(/img/palm.jpg);
-    -webkit-animation-delay: 36s;
-    -moz-animation-delay: 36s;
-    -o-animation-delay: 36s;
-    -ms-animation-delay: 36s;
-    animation-delay: 36s;
-}
-.slideshow li:nth-child(5) span {
-    background-image: url(/img/tarsier.jpg);
-    -webkit-animation-delay: 48s;
-    -moz-animation-delay: 48s;
-    -o-animation-delay: 48s;
-    -ms-animation-delay: 48s;
-    animation-delay: 48s;
-}
-.slideshow li:nth-child(6) span {
-    background-image: url(/img/chap.jpg);
     -webkit-animation-delay: 60s;
     -moz-animation-delay: 60s;
     -o-animation-delay: 60s;
     -ms-animation-delay: 60s;
     animation-delay: 60s;
 }
-.slideshow li:nth-child(2) div {
-    -webkit-animation-delay: 12s;
-    -moz-animation-delay: 12s;
-    -o-animation-delay: 12s;
-    -ms-animation-delay: 12s;
-    animation-delay: 12s;
+.slideshow li:nth-child(5) span {
+    background-image: url(/img/tarsier.jpg);
+    -webkit-animation-delay: 72s;
+    -moz-animation-delay: 72s;
+    -o-animation-delay: 72s;
+    -ms-animation-delay: 72s;
+    animation-delay: 72s;
 }
-.slideshow li:nth-child(3) div {
+.slideshow li:nth-child(6) span {
+    background-image: url(/img/chap.jpg);
+    -webkit-animation-delay: 84s;
+    -moz-animation-delay: 84s;
+    -o-animation-delay: 84s;
+    -ms-animation-delay: 84s;
+    animation-delay: 84s;
+}
+.slideshow li:nth-child(2) div {
     -webkit-animation-delay: 24s;
     -moz-animation-delay: 24s;
     -o-animation-delay: 24s;
     -ms-animation-delay: 24s;
     animation-delay: 24s;
 }
-.slideshow li:nth-child(4) div {
+.slideshow li:nth-child(3) div {
     -webkit-animation-delay: 36s;
     -moz-animation-delay: 36s;
     -o-animation-delay: 36s;
     -ms-animation-delay: 36s;
     animation-delay: 36s;
 }
-.slideshow li:nth-child(5) div {
+.slideshow li:nth-child(4) div {
     -webkit-animation-delay: 48s;
     -moz-animation-delay: 48s;
     -o-animation-delay: 48s;
     -ms-animation-delay: 48s;
     animation-delay: 48s;
 }
-.slideshow li:nth-child(6) div {
+.slideshow li:nth-child(5) div {
     -webkit-animation-delay: 60s;
     -moz-animation-delay: 60s;
     -o-animation-delay: 60s;
     -ms-animation-delay: 60s;
     animation-delay: 60s;
+}
+.slideshow li:nth-child(6) div {
+    -webkit-animation-delay: 72s;
+    -moz-animation-delay: 72s;
+    -o-animation-delay: 72s;
+    -ms-animation-delay: 72s;
+    animation-delay: 72s;
 }
 /* Animation for the slideshow images */
 @-webkit-keyframes imageAnimation { 
