@@ -42,8 +42,13 @@ class UserNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+            ->line("Greetings from Bohol Tourism!")
+            ->line("Here's the details of the destination you've sent from our KIOSK.")
             ->line($this->message)
-            ->line('Please click the above link to view the destination in GOOGLE MAPS and guide you in getting there. Enjoy your stay here in Bohol and God Bless. Thank you!');
+            ->line("Please click the LINK above to view it in GOOGLE MAPS and guide you there.")
+            ->line("Enjoy your stay here in Bohol.")
+            ->line("Thank you & God Bless!");
+         
     }
 
     /**

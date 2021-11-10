@@ -187,7 +187,7 @@ class DestinationController extends Controller
     {
         $destination = Destination::find($id);
 
-        $message = "Here". "'" . "s" . " the details of the destination you". "'" ."ve sent from our KIOSK. " . "Destination name: " . $destination->name . "." ." ". "http://www.google.com/maps/place/" . $destination->lat . "," . $destination->lng;
+        $message = "Destination name: " . $destination->name . "." ." ". "http://www.google.com/maps/place/" . $destination->lat . "," . $destination->lng;
 
         $data = \App\GuestData::firstOrNew([
             'email' => request('email'),
