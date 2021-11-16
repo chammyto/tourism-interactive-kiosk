@@ -144,7 +144,7 @@
 
             function resetTimer(){
                 clearTimeout(time);
-                time = setTimeout(backToStartPage, 180000);
+                time = setTimeout(backToStartPage, 60000);
             }
         }
         idleTime();
