@@ -369,6 +369,7 @@
         },
         {
             "name": "laravel/framework",
+<<<<<<< HEAD
             "version": "v6.20.40",
             "source": {
                 "type": "git",
@@ -379,6 +380,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/framework/zipball/e54a9f6eedcade49b15f05c57c14f4e8e6f6ad9f",
                 "reference": "e54a9f6eedcade49b15f05c57c14f4e8e6f6ad9f",
+=======
+            "version": "v6.20.38",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "1b301ac996e65d1319bc0d28716521ef6d1cd5c5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/1b301ac996e65d1319bc0d28716521ef6d1cd5c5",
+                "reference": "1b301ac996e65d1319bc0d28716521ef6d1cd5c5",
+>>>>>>> 9a6ff9b90056df8dcec273385e206a3bf6cbf2f3
                 "shasum": ""
             },
             "require": {
@@ -518,7 +531,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
+<<<<<<< HEAD
             "time": "2021-11-17T14:57:20+00:00"
+=======
+            "time": "2021-11-09T15:35:52+00:00"
+>>>>>>> 9a6ff9b90056df8dcec273385e206a3bf6cbf2f3
         },
         {
             "name": "laravel/tinker",
@@ -691,6 +708,7 @@
         },
         {
             "name": "league/flysystem",
+<<<<<<< HEAD
             "version": "1.1.6",
             "source": {
                 "type": "git",
@@ -701,6 +719,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/627be7fcde84c71aa0f15097fcf48fd5f2be5287",
                 "reference": "627be7fcde84c71aa0f15097fcf48fd5f2be5287",
+=======
+            "version": "1.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/flysystem.git",
+                "reference": "18634df356bfd4119fe3d6156bdb990c414c14ea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/18634df356bfd4119fe3d6156bdb990c414c14ea",
+                "reference": "18634df356bfd4119fe3d6156bdb990c414c14ea",
+>>>>>>> 9a6ff9b90056df8dcec273385e206a3bf6cbf2f3
                 "shasum": ""
             },
             "require": {
@@ -773,7 +803,11 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/thephpleague/flysystem/tree/1.1.6"
+=======
+                "source": "https://github.com/thephpleague/flysystem/tree/1.1.5"
+>>>>>>> 9a6ff9b90056df8dcec273385e206a3bf6cbf2f3
             },
             "funding": [
                 {
@@ -781,6 +815,7 @@
                     "type": "other"
                 }
             ],
+<<<<<<< HEAD
             "time": "2021-11-21T11:04:36+00:00"
         },
         {
@@ -795,6 +830,22 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/thephpleague/mime-type-detection/zipball/aa70e813a6ad3d1558fc927863d47309b4c23e69",
                 "reference": "aa70e813a6ad3d1558fc927863d47309b4c23e69",
+=======
+            "time": "2021-08-17T13:49:42+00:00"
+        },
+        {
+            "name": "league/mime-type-detection",
+            "version": "1.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/mime-type-detection.git",
+                "reference": "b38b25d7b372e9fddb00335400467b223349fd7e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/mime-type-detection/zipball/b38b25d7b372e9fddb00335400467b223349fd7e",
+                "reference": "b38b25d7b372e9fddb00335400467b223349fd7e",
+>>>>>>> 9a6ff9b90056df8dcec273385e206a3bf6cbf2f3
                 "shasum": ""
             },
             "require": {
@@ -802,7 +853,11 @@
                 "php": "^7.2 || ^8.0"
             },
             "require-dev": {
+<<<<<<< HEAD
                 "friendsofphp/php-cs-fixer": "^3.2",
+=======
+                "friendsofphp/php-cs-fixer": "^2.18",
+>>>>>>> 9a6ff9b90056df8dcec273385e206a3bf6cbf2f3
                 "phpstan/phpstan": "^0.12.68",
                 "phpunit/phpunit": "^8.5.8 || ^9.3"
             },
@@ -825,7 +880,11 @@
             "description": "Mime-type detection for Flysystem",
             "support": {
                 "issues": "https://github.com/thephpleague/mime-type-detection/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/thephpleague/mime-type-detection/tree/1.9.0"
+=======
+                "source": "https://github.com/thephpleague/mime-type-detection/tree/1.8.0"
+>>>>>>> 9a6ff9b90056df8dcec273385e206a3bf6cbf2f3
             },
             "funding": [
                 {
@@ -837,7 +896,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2021-11-21T11:48:40+00:00"
+=======
+            "time": "2021-09-25T08:23:19+00:00"
+>>>>>>> 9a6ff9b90056df8dcec273385e206a3bf6cbf2f3
         },
         {
             "name": "monolog/monolog",
