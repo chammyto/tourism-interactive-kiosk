@@ -48,7 +48,12 @@
     </style>
 </head>
 
-<body style="background: linear-gradient(to bottom, rgba(22, 19, 16, 0.1) 0%, rgba(22, 19, 16, 0.1) 100%), url(/img/background.jpg) center center no-repeat;
+@php 
+$bg = App\Setting::where('key', 'background')->first();
+
+@endphp
+
+<body style="background: linear-gradient(to bottom, rgba(22, 19, 16, 0.5) 50%, rgba(22, 19, 16, 6) 100%), url({{ $bg->value ? Storage::url($bg->value) : '/img/background.jpg' }}) center center no-repeat;
   background-size: cover; background-attachment: fixed">
     <div id="">
         <main class="py--4 " style="height: 90vh">
@@ -144,7 +149,7 @@
 
             function resetTimer(){
                 clearTimeout(time);
-                time = setTimeout(backToStartPage, 180000);
+                time = setTimeout(backToStartPage, 60000);
             }
         }
         idleTime();

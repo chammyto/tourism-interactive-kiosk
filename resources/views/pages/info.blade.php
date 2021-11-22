@@ -10,7 +10,7 @@
 
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item font-weight-bold alata"><a href="{{url('menu')}}"> <i class="fa fa-home"></i>Home</a></li> 
-                    <li class="breadcrumb-item font-weight-bold alata"><a href="{{url('about-bohol')}}"> <i class="fa fa-home"></i>Informations</a></li> 
+                    <li class="breadcrumb-item font-weight-bold alata"><a href="{{url('about-bohol')}}"> <i class="fa fa-home"></i>Information</a></li> 
 
 
                     <li class="breadcrumb-item font-weight-bold alata active">{{ $info->title }}</li>

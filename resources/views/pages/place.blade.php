@@ -21,22 +21,7 @@
             </nav>
         </div>
 
-
-
-
         <div class="col-md-12 mb-5">
-
-            <img src="{{ Storage::url($place->image ) }}" height="600" class="d-block w-100 mb-5" alt="..." style="border: .5px solid white; border-radius: 5px; box-shadow: 0px 0px 10px 0px rgba(225, 225, 225, 0.2), 0px 0px 20px 0px rgba(225, 225, 225, 0.7);">
-            <div class="jumbotron" style="border: 0.5px solid white; background: linear-gradient(to bottom, rgba(22, 19, 16, 0.5) 0%, rgba(22, 19, 16, 0.5) 100%), url('/img/choco.jpg'); border-radius: 5px; box-shadow: 0px 0px 10px 0px rgba(225, 225, 225, 0.2), 0px 0px 20px 0px rgba(225, 225, 225, 0.7);">
-            <h2 class="mb-3 font-weight-bold righteous text-white">Address</h2>
-            <p class="mt-3  text-white">{{ $place->street }} , {{ $place->town }}</p>
-            <h2 class="mb-3 font-weight-bold righteous  text-white">Description</h2>
-            <p class="mt-3  text-white">{{ $place->description }}</p>
-            </div>
-
-        </div>
-        <div class="col-md-12 mb-5">
-        <h2 class="mb-3 font-weight-bold righteous text-white">Spoilers</h2>
             <div id="carouselExampleInterval" class="carousel slide carousel-fade" data-interval="10000" data-ride="carousel" style="border: 1px solid white; border-radius:5px;  box-shadow: 0px 0px 10px 0px rgba(225, 225, 225, 0.2), 0px 0px 20px 0px rgba(225, 225, 225, 0.7);">
                 <ol class="carousel-indicators">
                     @foreach($place->media as $key=>$media)
@@ -67,6 +52,51 @@
                 </a>
             </div>
         </div>
+
+
+        <div class="col-md-12 mb-5">
+
+         <!--   <img src="{{ Storage::url($place->image ) }}" height="600" class="d-block w-100 mb-5" alt="..." style="border: .5px solid white; border-radius: 5px; box-shadow: 0px 0px 10px 0px rgba(225, 225, 225, 0.2), 0px 0px 20px 0px rgba(225, 225, 225, 0.7);"> -->
+            <div class="jumbotron" style="border: 0.5px solid white; background: linear-gradient(to bottom, rgba(22, 19, 16, 0.5) 0%, rgba(22, 19, 16, 0.5) 100%), url('/img/choco.jpg'); border-radius: 5px; box-shadow: 0px 0px 10px 0px rgba(225, 225, 225, 0.2), 0px 0px 20px 0px rgba(225, 225, 225, 0.7);">
+            <h2 class="mb-3 font-weight-bold righteous text-white">Address</h2>
+            <p class="mt-3  text-white">{{ $place->street }} , {{ $place->town }}</p>
+            <h2 class="mb-3 font-weight-bold righteous  text-white">Description</h2>
+            <p class="mt-3  text-white">{{ $place->description }}</p>
+            </div>
+
+        </div>
+    <!--    <div class="col-md-12 mb-5">
+        <h2 class="mb-3 font-weight-bold righteous text-white">Spoilers</h2>
+            <div id="carouselExampleInterval" class="carousel slide carousel-fade" data-interval="10000" data-ride="carousel" style="border: 1px solid white; border-radius:5px;  box-shadow: 0px 0px 10px 0px rgba(225, 225, 225, 0.2), 0px 0px 20px 0px rgba(225, 225, 225, 0.7);">
+                <ol class="carousel-indicators">
+                    @foreach($place->media as $key=>$media)
+                    <li data-target="#carouselExampleInterval" data-slide-to="{{$key}}"></li>
+                    @endforeach
+
+                </ol>
+                <div class="carousel-inner">
+                    @php
+                    $index = 0;
+                    @endphp
+                    @foreach($place->media as $media)
+                    <div class="carousel-item {{ $index === 0 ? 'active' : ''}}"  data-interval="10000">
+                        <img src="{{ Storage::url($media->source ) }}" height="600" class="d-block w-100" alt="...">
+                    </div>
+                    @php
+                    $index ++;
+                    @endphp
+                    @endforeach
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div> -->
 
         <div class="col-md-12 mb-5">
             @if(session()->has('success'))

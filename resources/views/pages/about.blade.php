@@ -11,7 +11,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item font-weight-bold alata"><a href="{{url('menu')}}"> <i class="fa fa-home"></i>Home</a></li> 
 
-                    <li class="breadcrumb-item font-weight-bold alata active">Informations</li>
+                    <li class="breadcrumb-item font-weight-bold alata active">Information</li>
                 </ol>
                 </nav>
             </div> 
