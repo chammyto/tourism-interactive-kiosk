@@ -2,6 +2,16 @@
 
 @section('content')
 <div class="container h-100 pt-5">
+
+@if(session()->has('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Success!</strong> Location has been sent successfully.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @endif
+
     <div class="row">
         <div class="col-md-12 mt--7">
             <h2 class="mb-4 font-weight-bold righteous text-white notranslate"style="text-shadow: 2px 2px 5px black;">{{ $place->name }}</h2>
@@ -99,19 +109,12 @@
         </div> -->
 
         <div class="col-md-12 mb-5">
-            @if(session()->has('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Success!</strong> Location has been sent successfully.
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            @endif
+    
             <h2 class="mb-3 font-weight-bold righteous d-flex">
                 <span class=' text-white'> Map </span>
                 <input type="hidden" id="lat" name="lat" value="{{ $place->lat }}">
                 <input type="hidden" id="lng" name="lng" value="{{ $place->lng }}">
-                <div class="btn btn-success ml-auto" data-toggle="modal" data-target="#sendLocation"><i class="fa fa-send"></i> Send Location</div>
+                <div class="btn btn-success btn-lg ml-auto" data-toggle="modal" data-target="#sendLocation"><i class="fa fa-send"></i> Send to my Email</div>
             </h2>
             <div id="map" style=" box-shadow: 0px 0px 10px 0px rgba(225, 225, 225, 0.2), 0px 0px 20px 0px rgba(225, 225, 225, 0.7); border-radius: 5px;"></div>
             <div class="col-md-12">
